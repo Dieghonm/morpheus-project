@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/morpheus-project/static/css/main.730fa5a9.css",
+    "main.js": "/morpheus-project/static/js/main.acc5c35d.js",
+    "static/js/787.40886894.chunk.js": "/morpheus-project/static/js/787.40886894.chunk.js",
+    "index.html": "/morpheus-project/index.html",
+    "main.730fa5a9.css.map": "/morpheus-project/static/css/main.730fa5a9.css.map",
+    "main.acc5c35d.js.map": "/morpheus-project/static/js/main.acc5c35d.js.map",
+    "787.40886894.chunk.js.map": "/morpheus-project/static/js/787.40886894.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.730fa5a9.css",
+    "static/js/main.acc5c35d.js"
+  ]
+}
