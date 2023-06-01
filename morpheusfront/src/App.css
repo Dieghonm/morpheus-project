@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #2196F3;
+  --secondary-color: #FF4081;
+  --text-color: #FFFFFF;
+  --input-background-color: #333333;
+  --input-border-color: #555555;
+  --accent-color: #FFC107;
+  --Dnd-color: #c41e3a;
+}
+
+.App {
+  color: var(--text-color);
+  background-color: var(--input-background-color);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: var(--Dnd-color)
+}
+
+.ficha-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}

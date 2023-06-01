@@ -1,0 +1,57 @@
+.display-ficha {
+  background-color: var(--input-background-color);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.display-ficha h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.character-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.character-info {
+  display: flex;
+  align-items: center;
+}
+
+.character-label {
+  font-weight: bold;
+  color: var(--text-color);
+  margin-right: 10px;
+}
+
+.character-value {
+  color: var(--text-color);
+}
+
+.equipment-group {
+  margin-bottom: 20px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+

@@ -1,0 +1,53 @@
+.edit-ficha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--input-background-color);
+  border-radius: 5px;
+}
+
+.edit-ficha h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.character-group label,
+.attributes-group label,
+.skills-group label,
+.equipment-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.skills-group .skills label,
+.skills-group .skills p {
+  display: inline-block;
+  margin-right: 10px;
+  color: var(--text-color);
+}
+
+.equipment-group {
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+@media screen and (max-width: 768px) {
+  .skills-group .skills {
+    flex-basis: 100%;
+  }
+}

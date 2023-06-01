@@ -1,0 +1,62 @@
+.LoginForm {
+  width: 200px;
+}
+
+.LoginForm h3 {
+  margin-bottom: 10px;
+}
+
+.LoginForm input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.LoginForm button {
+  width: 100%;
+  padding: 8px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.LoginForm button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.LoginForm a {
+  display: block;
+  margin-bottom: 10px;
+  color: #337ab7;
+  text-decoration: none;
+}
+
+.LoginForm a:hover {
+  text-decoration: underline;
+}
+
+.LoginForm .profile-icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.LoginForm .profile-icons div {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.LoginForm .profile-icons img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.LoginForm .profile-icons p {
+  margin: 0;
+}
