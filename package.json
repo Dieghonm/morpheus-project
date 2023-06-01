@@ -1,0 +1,15 @@
+{
+  "name": "morpheusproject",
+  "version": "1.0.0",
+  "scripts": {
+    "install:front": "cd front && npm install",
+    "install:back": "cd back && pip install -r requirements.txt",
+    "install": "concurrently \"npm run install:front\" \"npm run install:back\"",
+    "start:front": "cd front && npm start",
+    "start:back": "cd back && python app.py",
+    "start": "concurrently \"npm run start:front\" \"npm run start:back\"",
+    "build": "cd front && npm run build",
+    "deploy": "cd front && npm run deploy"
+  },
+  "private": true
+}

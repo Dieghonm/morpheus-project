@@ -1,53 +1,53 @@
-# Morpheus
+# Morpheus Project - Frontend
 
-Morpheus é um projeto que visa criar uma aplicação de cadastro e gerenciamento de contas de usuário.
+Este é o diretório do frontend do projeto Morpheus, um sistema abrangente de gerenciamento de personagens para jogos de interpretação de papéis de mesa.
 
 ## Funcionalidades
 
-- Criação de conta de usuário com nome e email
-- Autenticação de usuário
-- Exibição de perfis de usuário existentes
+- Crie e edite fichas de personagens com nome, raça, classe, nível, atributos, habilidades e equipamentos.
+- Atualize valores de atributos e níveis de habilidades de forma dinâmica.
+- Salve e envie as fichas de personagens.
+- Interface amigável com controles intuitivos.
+- Design responsivo para visualização ideal em vários dispositivos.
 
-## Tecnologias utilizadas
+## Tecnologias Utilizadas
 
-- React: biblioteca JavaScript para construção de interfaces de usuário
-- Node.js: ambiente de execução JavaScript no servidor
-- Express: framework web para Node.js
-- MySQL: sistema de gerenciamento de banco de dados relacional
-- Axios: cliente HTTP baseado em promises para fazer requisições ao servidor
+- React.js: Biblioteca JavaScript para construção de interfaces de usuário.
+- React Router DOM: Biblioteca de roteamento para navegação entre páginas em um aplicativo React.
+- CSS: Estilização e layout.
+- HTML: Estrutura de marcação.
+- JavaScript: Linguagem de programação para funcionalidade do lado do cliente.
+- Axios: Biblioteca JavaScript para fazer requisições HTTP.
+- Gravatar: Serviço para exibir avatares personalizados com base no endereço de e-mail.
 
-## Configuração
+## Instalação
 
-1. Clone o repositório:
-   git clone https://github.com/seu-nome-de-usuário/morpheus.git
+1. Na raiz do projeto, navegue até a pasta "front": `cd front`
+2. Instale as dependências do frontend: `npm install`
 
-Navegue até o diretório do projeto:
-    cd morpheus
+## Execução
 
-Instale as dependências:
-    npm install
+1. Na pasta "front", inicie o servidor de desenvolvimento do frontend: `npm start`
 
-Inicie o servidor de desenvolvimento:
-    npm start
+O frontend estará disponível em: `http://localhost:3000`
 
-Abra seu navegador e visite http://localhost:3000 para acessar o Morpheus.
+## Build
 
+Para criar uma versão de produção do frontend, execute o seguinte comando na pasta "front": `npm run build`
 
-Uso
-Preencha os campos de informações do personagem.
-Ajuste os valores dos atributos e níveis das habilidades conforme necessário.
-Adicione ou remova itens de equipamento.
-Clique no botão "Salvar" para salvar a ficha do personagem.
-Use a funcionalidade de envio do formulário para enviar a ficha do personagem para um servidor ou sistema de armazenamento.
+## Uso
 
-Login
-O Morpheus possui um sistema de login para autenticação de usuários. Ao acessar o aplicativo, você será redirecionado para a página de login, onde poderá inserir suas credenciais para acessar as funcionalidades completas do sistema.
+- Preencha os campos de informações do personagem.
+- Ajuste os valores dos atributos e níveis das habilidades conforme necessário.
+- Adicione ou remova itens de equipamento.
+- Clique no botão "Salvar" para salvar a ficha do personagem.
+- Use a funcionalidade de envio do formulário para enviar a ficha do personagem para um servidor ou sistema de armazenamento.
 
-Navegação com BrowserRouter
-O Morpheus utiliza o BrowserRouter do React Router para fornecer uma navegação entre as diferentes páginas e funcionalidades do aplicativo. O BrowserRouter permite que você navegue facilmente pelas fichas de personagens, áreas de edição e outras partes do sistema.
+## Contribuição
 
-Contribuição
 Contribuições para o Morpheus são bem-vindas! Se você tiver alguma ideia, relatório de bug ou solicitação de recurso, abra uma issue no repositório do GitHub. Se você deseja contribuir com código, pode enviar um pull request com suas alterações.
 
-Licença
+## Licença
+
 Este projeto está licenciado sob a Licença MIT.
+
