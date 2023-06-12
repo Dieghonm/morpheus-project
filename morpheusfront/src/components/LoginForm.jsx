@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { GetGravatar } from "../helpers/Gravatar";
-import axios from "axios";
-import "./styles/LoginForm.css";
 
-const LoginForm = ({ handleLogin }) => {
+import "./styles/LoginForm.css";
+import { LoginRequest } from "../helpers/requests/login";
+
+const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [contas, setContas] = useState([]);
   const [disabledButton, setDisabledButton] = useState(true);
 
   useEffect(() => {
-    const regex = /^[\w-.]+@([\w-])+$/;
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (username && regex.test(email)) {
       setDisabledButton(false);
     } else {
@@ -18,18 +19,10 @@ const LoginForm = ({ handleLogin }) => {
     }
   }, [username, email]);
 
-  const enterButton = async (event) => {
+  const enterButton = (event) => {
     event.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:5000/login", {
-        username,
-        email,
-      });
-      handleLogin(response.data.user, response.data.email);
-    } catch (error) {
-      console.error("Erro ao efetuar login:", error);
-      // Faça o tratamento necessário para exibir uma mensagem de erro ao usuário
-    }
+    
+    LoginRequest({ username, email }) //verificar o retorno quando ticer um banco
   };
 
   const iconMaker = (conta) => {

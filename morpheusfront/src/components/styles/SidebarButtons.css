@@ -1,0 +1,20 @@
+.SidebarButtons {
+  background-color: #f0f0f0;
+  width: 200px;
+  padding: 10px;
+}
+
+.sidebar-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 6px;
+  background-color: #fff;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar-button:hover {
+  background-color: #e6e6e6;
+}

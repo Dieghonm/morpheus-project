@@ -2,14 +2,15 @@
   "name": "morpheusproject",
   "version": "1.0.0",
   "scripts": {
-    "install:front": "cd front && npm install",
-    "install:back": "cd back && pip install -r requirements.txt",
+    "install:front": "cd morpheusfront && npm install",
+    "install:back": "cd morpheusback && pip install -r requirements.txt",
     "install": "concurrently \"npm run install:front\" \"npm run install:back\"",
-    "start:front": "cd front && npm start",
-    "start:back": "cd back && python app.py",
+    "start:front": "cd morpheusfront && npm start",
+    "start:back": "cd morpheusback && python app.py",
     "start": "concurrently \"npm run start:front\" \"npm run start:back\"",
-    "build": "cd front && npm run build",
-    "deploy": "cd front && npm run deploy"
+    "build": "cd morpheusfront && npm run build",
+    "deploy": "cd morpheusfront && npm run deploy",
+    "publicar": "cd morpheusfront && npm run build && gh-pages -d build && git add ."
   },
   "private": true
 }

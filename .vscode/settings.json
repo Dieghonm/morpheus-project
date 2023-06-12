@@ -1,3 +1,19 @@
 {
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "MySQL Local",
+      "group": "MySQL",
+      "username": "root",
+      "password": "Adalumba20",
+      "database": "morpheus"
+    }
+  ]
 }
