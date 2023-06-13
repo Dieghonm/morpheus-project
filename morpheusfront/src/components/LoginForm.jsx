@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GetGravatar } from "../helpers/Gravatar";
 
 import "./styles/LoginForm.css";
-import { LoginRequest } from "../helpers/requests/login";
+import { LoginRequest, newLogin } from "../helpers/requests/login";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -23,7 +23,7 @@ const LoginForm = () => {
   const enterButton = (event) => {
     event.preventDefault();
     
-    LoginRequest({ username, email }) //verificar o retorno quando ticer um banco
+    newLogin({ username, email }) //verificar o retorno quando ticer um banco
   };
 
   const iconMaker = (conta) => {
