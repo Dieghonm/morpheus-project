@@ -20,6 +20,19 @@ const LoginForm = () => {
     }
   }, [username, email]);
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await LoginRequest();
+      setContas(response);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   const enterButton = (event) => {
     event.preventDefault();
     
@@ -27,19 +40,18 @@ const LoginForm = () => {
   };
 
   const iconMaker = (conta) => {
+    console.log(conta);
     return (
-      <div key={conta} 
+      <div key={conta[2]} 
       // onClick={() => iniciar(conta, contas[conta].Email)}
       >
-        <img src={GetGravatar(contas[conta].Email)} alt="Avatar" />
-        <p>{conta}</p>
+        <img src={GetGravatar(conta[2])} alt="Avatar" />
+        <p>{conta[1]}</p>
       </div>
     );
   };
 
-  const init = () => {
-    LoginRequest()
-  }
+
 
   return (
     <div className="LoginForm">
@@ -67,7 +79,6 @@ const LoginForm = () => {
       <div className="profile-icons">
         {contas.map((conta) => iconMaker(conta))}
       </div>
-      <button onClick={(e) => init(e)}>init</button>
     </div>
   );
 };
