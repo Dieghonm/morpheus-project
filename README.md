@@ -96,3 +96,13 @@ Contribuições para o Morpheus são bem-vindas! Se você tiver alguma ideia, re
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT.
+
+
+<!-- Atualizar
+front
+
+
+back
+flask_cors
+
+ -->

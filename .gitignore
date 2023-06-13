@@ -4,6 +4,7 @@
 /morpheusfront/node_modules
 /.pnp
 .pnp.js
+.gitignore
 
 # testing
 /coverage

@@ -1,4 +1,3 @@
-# PARA RODAR "python database.py"
 import os
 import mysql.connector
 from dotenv import load_dotenv
@@ -40,34 +39,9 @@ def criar_banco():
     if not admin_exists:
         insert_admin_query = """
         INSERT INTO usuarios (nome, email, role)
-        VALUES ('diegho', 'dieghonm@gmail.com', 'admin')
+        VALUES ('Diegho', 'dieghonm@gmail.com', 'admin')
         """
         cursor.execute(insert_admin_query)
         conn.commit()
     cursor.close()
     conn.close()
-
-criar_banco()
-
-
-
-# Função para obter os dados dos usuários
-def obter_dados():
-    conn = mysql.connector.connect(
-        host=db_host,
-        user=db_user,
-        password=db_password,
-        database=db_name
-    )
-
-    cursor = conn.cursor()
-    select_query = "SELECT * FROM usuarios"
-    cursor.execute(select_query)
-    dados = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return dados
-
-
-
-

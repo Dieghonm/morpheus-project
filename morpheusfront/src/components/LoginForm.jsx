@@ -12,7 +12,8 @@ const LoginForm = () => {
 
   useEffect(() => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (username && regex.test(email)) {
+    // if (username && regex.test(email)) {
+    if (username) {
       setDisabledButton(false);
     } else {
       setDisabledButton(true);
@@ -35,6 +36,10 @@ const LoginForm = () => {
       </div>
     );
   };
+
+  const init = () => {
+    LoginRequest()
+  }
 
   return (
     <div className="LoginForm">
@@ -62,6 +67,7 @@ const LoginForm = () => {
       <div className="profile-icons">
         {contas.map((conta) => iconMaker(conta))}
       </div>
+      <button onClick={(e) => init(e)}>init</button>
     </div>
   );
 };
