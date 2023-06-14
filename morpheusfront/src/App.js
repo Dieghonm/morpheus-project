@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Sidebar from './pages/Sidebar';
-import MyContext from './helpers/context/MyContext';
+
 import Home from './pages/Home';
+import Sidebar from './pages/Sidebar';
+
+import MyContext from './helpers/context/MyContext';
+
 
 import './App.css';
+import EditToken from './pages/EditToken';
+import Fight from './pages/Fight';
+import Rules from './pages/Rules';
+import Tokens from './pages/Tokens';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState({name:'', email:'', role:''});
@@ -15,6 +22,10 @@ function App() {
         <div className="App">
           <Sidebar />
           <Routes>
+            <Route path="/EditToken" element={<EditToken />} />
+            <Route path="/Fight" element={<Fight />} /> 
+            <Route path="/Rules" element={<Rules />} /> 
+            <Route path="/Tokens" element={<Tokens />} /> 
             <Route path="*" element={<Home /> } />
           </Routes>
         </div>
@@ -34,4 +45,3 @@ export default App;
           <Route path="/aventuras-fantasticas/CreateCharacter" element={<CreateCharacter />} />
           <Route path="/aventuras-fantasticas/Play/:goTo" element={<Play />} />
           <Route path="/aventuras-fantasticas/makeLogin" element={<Error />} />*/}
-          {/* <Route path="/aventuras-fantasticas" element={<Project />} />  */}

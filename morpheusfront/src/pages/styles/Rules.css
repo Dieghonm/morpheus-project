@@ -1,0 +1,54 @@
+.dnd-rules-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+  max-height: 100vh;; /* Defina o limite de altura desejado */
+  overflow: auto;
+}
+/* 
+.dnd-rules-container h1,
+.dnd-rules-container h2,
+.dnd-rules-container h3,
+.dnd-rules-container h4 {
+  color: var(--text-color);
+}
+
+.dnd-rules-container p {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.dnd-rules-container table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.dnd-rules-container th,
+.dnd-rules-container td {
+  padding: 10px;
+  border: 1px solid var(--text-color);
+}
+
+.dnd-rules-container th {
+  background-color: var(--secondary-color);
+}
+
+.dnd-rules-container ul {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.dnd-rules-container li {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 768px) {
+  .dnd-rules-container {
+    font-size: 14px;
+  }
+} */

@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
 import './styles/SidebarButtons.css'
 import MyContext from '../helpers/context/MyContext';
 
@@ -6,13 +8,13 @@ const SidebarButtons = () => {
   const {loggedIn} = useContext (MyContext)
   console.log(loggedIn);
   return (
-    <div className="SidebarButtons">
-      <button className="sidebar-button">Ver ficha</button>
-      <button className="sidebar-button">Editar ficha</button>
-      <button className="sidebar-button">Botão 4</button>
-      <button className="sidebar-button">Botão 5</button>
-      <button className="sidebar-button">Botão 6</button>
-      <button className="sidebar-button">Combate</button>
+    <div>
+      <div className="SidebarButtons">
+        <Link to="/Rules"><button className="sidebar-button">Regras</button></Link>
+        <Link to="/Tokens"><button className="sidebar-button">Fichas</button></Link>
+        <Link to="/EditToken"><button className="sidebar-button">Editar ficha</button></Link>
+        <Link to="/Fight"><button className="sidebar-button">Combate</button></Link>
+      </div>
     </div>
   );
 }

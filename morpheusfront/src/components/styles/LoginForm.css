@@ -15,15 +15,14 @@
 .LoginForm button {
   width: 100%;
   padding: 8px;
-  background-color: #4CAF50;
-  color: #ffffff;
+  color: #FFFFFF;
   border: none;
   cursor: pointer;
   margin: 10px;
 }
 
 .LoginForm button:disabled {
-  background-color: #cccccc;
+  background-color: var(--text-color);
   cursor: not-allowed;
 }
 
@@ -42,8 +41,8 @@
 .back-loading {
   display: flex;
   flex-direction: column;
-  background-color: #f4b836;
-  color: #ffffff;
+  background-color:var(--accent-color);
+  color: var(--text-color);
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -52,8 +51,8 @@
 .back-off-alert {
   display: flex;
   flex-direction: column;
-  background-color: #f44336;
-  color: #ffffff;
+  background-color: var(--Dnd-color);
+  color: var(--text-color);
   border-radius: 5px;
   padding: 10px;
   text-align: center;
