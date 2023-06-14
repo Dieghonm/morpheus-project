@@ -15,7 +15,7 @@ export const newLogin = async (name, email) => {
       name,
       email,
     });
-    console.log(response.data);
+     return response.data;
     // Faça o tratamento necessário com a resposta do servidor
   } catch (error) {
     console.error("Erro ao efetuar login:", error);

@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/morpheus-project/static/css/main.80bd2430.css",
-    "main.js": "/morpheus-project/static/js/main.3247a816.js",
+    "main.css": "/morpheus-project/static/css/main.337138b2.css",
+    "main.js": "/morpheus-project/static/js/main.a16de537.js",
     "static/js/787.40886894.chunk.js": "/morpheus-project/static/js/787.40886894.chunk.js",
     "index.html": "/morpheus-project/index.html",
-    "main.80bd2430.css.map": "/morpheus-project/static/css/main.80bd2430.css.map",
-    "main.3247a816.js.map": "/morpheus-project/static/js/main.3247a816.js.map",
+    "main.337138b2.css.map": "/morpheus-project/static/css/main.337138b2.css.map",
+    "main.a16de537.js.map": "/morpheus-project/static/js/main.a16de537.js.map",
     "787.40886894.chunk.js.map": "/morpheus-project/static/js/787.40886894.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.80bd2430.css",
-    "static/js/main.3247a816.js"
+    "static/css/main.337138b2.css",
+    "static/js/main.a16de537.js"
   ]
 }

@@ -4,6 +4,8 @@ import MyContext from '../helpers/context/MyContext';
 import LoginForm from '../components/LoginForm';
 import SidebarButtons from '../components/SidebarButtons';
 
+import './styles/Sidebar.css'
+
 const Sidebar = () => {
   const {loggedIn} = useContext(MyContext)
 

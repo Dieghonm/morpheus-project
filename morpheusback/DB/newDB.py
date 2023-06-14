@@ -17,19 +17,44 @@ def criar_banco():
         password=db_password
     )
     cursor = conn.cursor()
-    create_database_query = f"CREATE DATABASE IF NOT EXISTS {db_name}"
+    create_database_query = f"CREATE DATABASE IF NOT EXISTS {db_name} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"
     cursor.execute(create_database_query)
     use_database_query = f"USE {db_name}"
     cursor.execute(use_database_query)
-    create_table_query = """
+
+    # Criação da tabela 'usuarios'
+    create_usuarios_table_query = """
     CREATE TABLE IF NOT EXISTS usuarios (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(100),
-        email VARCHAR(100),
-        role VARCHAR(100)
+        nome VARCHAR(20),
+        email VARCHAR(100) UNIQUE,
+        role VARCHAR(10) DEFAULT 'Player'
     )
     """
-    cursor.execute(create_table_query)
+    cursor.execute(create_usuarios_table_query)
+
+   # Criação da tabela 'personagens'
+    create_personagens_table_query = """
+    CREATE TABLE IF NOT EXISTS personagens (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        usuario_id INT,
+        nome VARCHAR(20),
+        email VARCHAR(30),
+        classe VARCHAR(20),
+        nivel INT DEFAULT 0,
+        raca VARCHAR(10) DEFAULT 'Humano',
+        pontos_vida INT DEFAULT 15,
+        experiencia INT DEFAULT 0,
+        forca INT DEFAULT 10,
+        destresa INT DEFAULT 10,
+        constituicao INT DEFAULT 10,
+        inteligencia INT DEFAULT 10,
+        sabedoria INT DEFAULT 10,
+        carisma INT DEFAULT 10,
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    )
+    """
+    cursor.execute(create_personagens_table_query)
 
     # Comando SQL para verificar se o usuário admin já existe
     check_admin_query = "SELECT * FROM usuarios WHERE email = 'dieghonm@gmail.com'"

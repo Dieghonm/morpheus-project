@@ -1,0 +1,7 @@
+.sidebar {
+  width: 20%;
+  border-right: 1px solid var(--input-border-color);
+  padding: 20px;
+  background-color: var(--input-background-color);
+  font-family: Arial, sans-serif;
+}

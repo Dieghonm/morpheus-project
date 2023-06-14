@@ -26,7 +26,6 @@ def get_users():
     conn.close()
     return dados
 
-
 def new_user(name, email):
     conn = mysql.connector.connect(
         host=db_host,
@@ -34,16 +33,26 @@ def new_user(name, email):
         password=db_password,
         database=db_name
     )
-
+    print(name, email)
     cursor = conn.cursor()
+    
+    # Verifica se o email já foi cadastrado
+    check_email_query = "SELECT * FROM usuarios WHERE email = %s"
+    cursor.execute(check_email_query, (email,))
+    existing_user = cursor.fetchone()
+    if existing_user:
+        cursor.close()
+        conn.close()
+        return "Email já cadastrado"
+    
+    # Insere o novo usuário na tabela
     insert_query = """
         INSERT INTO usuarios (nome, email, role)
-        VALUES ('{}', '{}', 'player')
-        """.format(name, email)
-    cursor.execute(insert_query)
+        VALUES (%s, %s, 'player')
+        """
+    cursor.execute(insert_query, (name, email))
     conn.commit()
     cursor.close()
     conn.close()
-    
-    return "Novo usuário cadastrado com sucesso"
 
+    return "Novo usuário cadastrado com sucesso"

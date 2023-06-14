@@ -11,18 +11,8 @@
 .App {
   color: var(--text-color);
   background-color: var(--input-background-color);
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
   text-align: center;
-}
-
-h1 {
-  color: var(--Dnd-color)
-}
-
-.ficha-container {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  height: 100vh; /* Altura total da tela */
+  width: 100vw; /* Largura total da tela */
 }

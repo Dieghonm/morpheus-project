@@ -19,6 +19,7 @@
   color: #ffffff;
   border: none;
   cursor: pointer;
+  margin: 10px;
 }
 
 .LoginForm button:disabled {
@@ -31,32 +32,77 @@
   margin-bottom: 10px;
   color: #337ab7;
   text-decoration: none;
+  margin: 10px;
 }
 
 .LoginForm a:hover {
   text-decoration: underline;
 }
 
-.LoginForm .profile-icons {
+.back-loading {
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 10px;
+  flex-direction: column;
+  background-color: #f4b836;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
 }
 
-.LoginForm .profile-icons div {
+.back-off-alert {
+  display: flex;
+  flex-direction: column;
+  background-color: #f44336;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.back-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.back-message {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.back-contact {
+  font-size: 16px;
+}
+
+.profile-icons {
+  margin-top: 50px;
+}
+
+.icon-maker-container {
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  width: 200px;
+  margin: 5px;
   cursor: pointer;
 }
 
-.LoginForm .profile-icons img {
+.icon-maker-avatar {
   width: 24px;
   height: 24px;
+  margin: 3px;
   border-radius: 50%;
-  margin-right: 5px;
+  object-fit: cover;
 }
 
-.LoginForm .profile-icons p {
+.icon-maker-name {
+  margin: 5px;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+h6 {
   margin: 0;
 }
