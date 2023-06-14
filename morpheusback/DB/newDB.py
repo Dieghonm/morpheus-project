@@ -39,7 +39,6 @@ def criar_banco():
         id INT AUTO_INCREMENT PRIMARY KEY,
         usuario_id INT,
         nome VARCHAR(20),
-        email VARCHAR(30),
         classe VARCHAR(20),
         nivel INT DEFAULT 0,
         raca VARCHAR(10) DEFAULT 'Humano',
@@ -68,5 +67,18 @@ def criar_banco():
         """
         cursor.execute(insert_admin_query)
         conn.commit()
+
+    def new_personagem(usuario_id, nome, classe):
+        insert_personagem_query = """
+        INSERT INTO personagens (usuario_id, nome, classe)
+        VALUES (%s, %s, %s)
+        """
+        cursor.execute(insert_personagem_query, (usuario_id, nome, classe))
+        conn.commit()
+
+    # Vinculando os personagens ao usuário "Diegho"
+    new_personagem(1, "Personagem 1", "Classe 1")
+    new_personagem(1, "Personagem 2", "Classe 2")
+
     cursor.close()
     conn.close()
