@@ -69,16 +69,25 @@ def criar_banco():
         conn.commit()
 
     def new_personagem(usuario_id, nome, classe):
-        insert_personagem_query = """
-        INSERT INTO personagens (usuario_id, nome, classe)
-        VALUES (%s, %s, %s)
-        """
-        cursor.execute(insert_personagem_query, (usuario_id, nome, classe))
-        conn.commit()
-
-    # Vinculando os personagens ao usuário "Diegho"
-    new_personagem(1, "Personagem 1", "Classe 1")
-    new_personagem(1, "Personagem 2", "Classe 2")
+        cursor = conn.cursor()
+        
+        check_personagem_query = "SELECT * FROM personagens WHERE nome = %s"
+        cursor.execute(check_personagem_query, (nome,))
+        personagem_exists = cursor.fetchone()
+        
+        if personagem_exists:
+            print("Personagem já existe.")
+        else:
+            insert_personagem_query = """
+            INSERT INTO personagens (usuario_id, nome, classe)
+            VALUES (%s, %s, %s)
+            """
+            cursor.execute(insert_personagem_query, (usuario_id, nome, classe))
+            conn.commit()
+            print("Novo personagem cadastrado com sucesso.")
+        
+    new_personagem(1, "Tobias", "Fantoche")
+    new_personagem(1, "P azul generico", "Boneco")
 
     cursor.close()
     conn.close()
