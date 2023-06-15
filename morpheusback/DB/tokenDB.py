@@ -30,3 +30,18 @@ def get_tokens():
     conn.close()
     return dados
 
+def get_selected_token(nome):
+    conn = mysql.connector.connect(
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
+    )
+
+    cursor = conn.cursor()
+    select_query = "SELECT * FROM personagens WHERE nome = %s"
+    cursor.execute(select_query, (nome,))
+    dados = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return dados
