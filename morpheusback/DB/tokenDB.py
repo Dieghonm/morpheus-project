@@ -19,9 +19,14 @@ def get_tokens():
     )
 
     cursor = conn.cursor()
-    select_query = "SELECT * FROM personagens"
+    select_query = """
+    SELECT usuarios.nome, personagens.nome
+    FROM personagens
+    JOIN usuarios ON personagens.usuario_id = usuarios.id
+    """
     cursor.execute(select_query)
     dados = cursor.fetchall()
     cursor.close()
     conn.close()
     return dados
+

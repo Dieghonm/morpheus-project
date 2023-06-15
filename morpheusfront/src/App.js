@@ -15,9 +15,12 @@ import Tokens from './pages/Tokens';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState({name:'', email:'', role:''});
+  const [SelectedToken, setSelectedToken] = useState({name:'', email:'', role:''});
+
+  const params = { loggedIn, setLoggedIn, SelectedToken, setSelectedToken }
 
   return (
-    <MyContext.Provider value={{ loggedIn, setLoggedIn }}>
+    <MyContext.Provider value={params}>
       <BrowserRouter>
         <div className="App">
           <Sidebar />

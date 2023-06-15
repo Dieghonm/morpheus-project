@@ -1,7 +1,16 @@
-import React from 'react';
-import './styles/Rules.css';
+import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import MyContext from '../helpers/context/MyContext';
 
+import './styles/Rules.css';
+  
 const Rules = () => {
+  const {loggedIn} = useContext(MyContext)
+  if (loggedIn.name === '') {
+    return (
+      <Navigate to={'/'} />
+    )
+  }
   return (
     <div className="dnd-rules-container">
       <h1>Regras Básicas do D&D</h1>
