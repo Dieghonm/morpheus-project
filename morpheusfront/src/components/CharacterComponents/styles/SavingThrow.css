@@ -1,0 +1,40 @@
+.saving-group {
+  border: 1px solid var(--input-background-color);
+  margin: 0px 5px;
+  height: 140px;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.saving-group h3 {
+  font-size: 17px;
+  margin: 0px;
+  border-bottom: 1px solid var(--input-background-color);
+}
+
+.saving {
+  display: flex;
+  margin: 5px 0px;
+  font-size: 13px;
+}
+
+.saving-input {
+  margin: 0px;
+}
+
+.saving-name {
+  width: 80px;
+  background-color: var(--input-secondary);
+}
+
+.saving-value {
+  margin: 0px 5px;
+  width: 25px;
+  background-color: var(--input-secondary);
+}
+
+.saving-Mod {
+  width: 25px;
+  margin: 0px 5px;
+  background-color: var(--input-secondary);
+}

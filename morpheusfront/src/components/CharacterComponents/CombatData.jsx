@@ -30,20 +30,20 @@ const CombatData = () => {
     return '9'
   }
 
-  console.log(classe);
   if(name) {
     return (
       <div className="combat-group">
-      <h4>Iniciativa: {atributos.Destresa/2 - 5}</h4>
-      <h4>classe de armadura: {
-        classe === 'Barbaro'? (
-          10 + (atributos.Destresa / 2 - 5) + (atributos.Constituição / 2 - 5) + ('equip')
-          ): (
-          10 + (atributos.Destresa / 2 - 5) + ('equip')
-        )}</h4>
-      <h4>deslocamento: {movement()}m</h4>
-      <h4>Proficiência: {proficiencia}</h4>
-    </div>
+        <h4 className="combat-init">Iniciativa: {atributos.Destresa/2 - 5}</h4>
+        <h4 className="combat-ca">Classe de armadura:</h4>
+        <h4 className="combat-value">{
+          classe === 'Barbaro'? (
+            10 + (atributos.Destresa / 2 - 5) + (atributos.Constituição / 2 - 5) + ('equip')
+            ): (
+            10 + (atributos.Destresa / 2 - 5) + ('equip')
+          )}</h4>
+        <h4 className="combat-desl">Deslocamento: {movement()}m</h4>
+        <h4 className="combat-prof">Proficiência: {proficiencia}</h4>
+      </div>
     );
   }
 }

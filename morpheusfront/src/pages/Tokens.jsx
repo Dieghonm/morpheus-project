@@ -32,26 +32,8 @@ const Tokens = () => {
         },
         dado: caracter[0][14],
         proficiencia: caracter[0][15],
-        skills: {
-          "Acrobacia": ["Destresa", 'db'],
-          "Adestrar Animais": ["Sabedoria", 'db'],
-          "Arcanismo": ["Inteligéncia", 'db'],
-          "Atletismo": ["Destresa", 'db'],
-          "Atuação": ["Carisma", 'db'],
-          "Enganação": ["Carisma", 'db'],
-          "Furtividade": ["Destresa", 'db'],
-          "História": ["Inteligéncia", 'db'],
-          "Intuição": ["Sabedoria", 'db'],
-          "Intimidação": ["Carisma", 'db'],
-          "Investigação": ["Inteligéncia", 'db'],
-          "Medicina": ["Sabedoria", 'db'],
-          "Natureza": ["Inteligéncia", 'db'],
-          "Percepção": ["Sabedoria", 'db'],
-          "Persuasão": ["Carisma", 'db'],
-          "Prestidigitação": ["Destresa", 'db'],
-          "Religião": ["Inteligéncia", 'db'],
-          "Sobrevivência": ["Sabedoria", 'db']
-        },
+        resistencia: caracter[0][16],
+        skills: caracter[0][17],
         equipments: {},
       });
     }

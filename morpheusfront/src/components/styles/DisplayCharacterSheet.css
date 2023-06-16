@@ -5,6 +5,8 @@
   height: 88vh;
   width: 100vh;
   border-radius: 10px;
+  max-height: 100vh;
+  overflow: auto;
 }
 
 .display-ficha h2 {
@@ -60,7 +62,7 @@
 
 .PV-group {
   border: 1px solid var(--input-background-color);
-  width: 150px;
+  width: 160px;
   margin: 0px 10px;
   padding: 10px;
 }

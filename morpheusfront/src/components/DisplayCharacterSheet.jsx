@@ -23,10 +23,14 @@ const DisplayCharacterSheet = () => {
         <PV />
         <CombatData />
       </div>
+      <div className='mid-container'>
         <Skills />
-        <Attacks />
+        <div>
+          <SavingThrow />
+          <Attacks />
+        </div>
+      </div>
         <Equipment />
-        <SavingThrow />
         <Spells />
         <Feats />
     </div>

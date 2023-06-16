@@ -52,6 +52,8 @@ def criar_banco():
         carisma INT DEFAULT 10,
         dado_vida VARCHAR(5) DEFAULT 'd8',
         proficiencia INT DEFAULT 2,
+        resistencia VARCHAR(100),
+        skills VARCHAR(500),
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
     )
     """
@@ -70,7 +72,7 @@ def criar_banco():
         cursor.execute(insert_admin_query)
         conn.commit()
 
-    def new_personagem(usuario_id, nome, classe):
+    def new_personagem(usuario_id, nome, classe, resistencia, skills):
         cursor = conn.cursor()
         
         check_personagem_query = "SELECT * FROM personagens WHERE nome = %s"
@@ -81,15 +83,15 @@ def criar_banco():
             print("Personagem já existe.")
         else:
             insert_personagem_query = """
-            INSERT INTO personagens (usuario_id, nome, classe)
-            VALUES (%s, %s, %s)
+            INSERT INTO personagens (usuario_id, nome, classe, resistencia, skills)
+            VALUES (%s, %s, %s, %s, %s)
             """
-            cursor.execute(insert_personagem_query, (usuario_id, nome, classe))
+            cursor.execute(insert_personagem_query, (usuario_id, nome, classe, resistencia, skills))
             conn.commit()
             print("Novo personagem cadastrado com sucesso.")
         
-    new_personagem(1, "Tobias", "Fantoche")
-    new_personagem(1, "P azul generico", "Boneco")
+    new_personagem(1, "Tobias", "Fantoche", '[Força, Sabedoria]', '[Atuação, Intimidação, Religião]')
+    new_personagem(1, "P azul generico", "Boneco", '[Constituição, Carisma]', '[Acrobacia, Percepção, Sobrevivência]')
 
     cursor.close()
     conn.close()
