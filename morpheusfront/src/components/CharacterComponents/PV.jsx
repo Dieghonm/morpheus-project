@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import MyContext from '../../helpers/context/MyContext'
 
+import'./styles/PV.css'
+
 const PV = () => {
   const {characterSheet} = useContext(MyContext)
   const {

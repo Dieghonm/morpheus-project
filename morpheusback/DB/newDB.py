@@ -40,7 +40,7 @@ def criar_banco():
         usuario_id INT,
         nome VARCHAR(20),
         classe VARCHAR(20),
-        nivel INT DEFAULT 0,
+        nivel INT DEFAULT 1,
         raca VARCHAR(10) DEFAULT 'Humano',
         pontos_vida INT DEFAULT 15,
         experiencia INT DEFAULT 0,

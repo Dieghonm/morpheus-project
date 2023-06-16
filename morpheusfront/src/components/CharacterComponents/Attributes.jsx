@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import MyContext from '../../helpers/context/MyContext'
 
+import'./styles/Attributes.css'
+
 const Attributes = () => {
   const {characterSheet} = useContext(MyContext)
   const {

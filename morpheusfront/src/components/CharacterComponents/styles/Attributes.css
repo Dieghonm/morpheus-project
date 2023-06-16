@@ -1,0 +1,31 @@
+.attributes-group {
+  border: 1px solid var(--input-background-color);
+  width: 200px;
+  padding: 10px;
+}
+.attributes-group h3 {
+  margin: 0;
+  border-bottom: 1px solid var(--input-background-color);
+}
+
+.attribute {
+  display: flex;
+  margin: 5px;
+}
+
+.attribute-name {
+  display: flex;
+  width: 100px;
+  background-color: var(--input-secondary);
+}
+
+.attribute-value {
+  margin: 0px 5px;
+  width: 40px;
+  background-color: var(--input-secondary);
+}
+
+.attribute-Mod {
+  width: 40px;
+  background-color: var(--input-secondary);
+}
