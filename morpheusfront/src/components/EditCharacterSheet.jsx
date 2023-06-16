@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 import './styles/EditCharacterSheet.css'
 
-const EditCharacterSheet = ({ ficha, onSave }) => {
-  const [name, setName] = useState(ficha.name);
-  const [race, setRace] = useState(ficha.race);
-  const [classs, setClass] = useState(ficha.class);
-  const [level, setLevel] = useState(ficha.level);
-  const [attributes, setAttributes] = useState(ficha.attributes);
-  const [skills, setSkills] = useState(ficha.skills);
-  const [equipment, setEquipment] = useState(ficha.equipment);
+const EditCharacterSheet = () => {
+  const [name, setName] = useState();
+  const [race, setRace] = useState();
+  const [classs, setClass] = useState();
+  const [level, setLevel] = useState();
+  const [attributes, setAttributes] = useState({f:10, i:10});
+  const [skills, setSkills] = useState({t:'t' ,e:'e'});
+  const [equipment, setEquipment] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,7 +22,6 @@ const EditCharacterSheet = ({ ficha, onSave }) => {
       skills,
       equipment,
     };
-    onSave(updatedFicha);
   };
 
   const createAttributes = (attributes) => {
@@ -63,13 +62,14 @@ const EditCharacterSheet = ({ ficha, onSave }) => {
 
   const criateRace = () => {
     return (
-      <select name="race" id="cars" value={race.choice} onChange={(e) => setRace({choice:e.target.value, })}>
+      <select name="race" id="cars" value={'human'} onChange={(e) => setRace({choice:e.target.value, })}>
           <option value="human">Human</option>
       </select>
     )
   }
 
   return (
+
     <div className="edit-ficha">
       <h2>Edit Ficha</h2>
       <form onSubmit={handleSubmit}>
@@ -91,10 +91,12 @@ const EditCharacterSheet = ({ ficha, onSave }) => {
             <input type="number" value={level} onChange={(e) => setLevel(e.target.value)} />
           </div>
         </div>
+      
         <div className="attributes-group">
           <h3>Attributes</h3>
           {createAttributes(attributes)}
         </div>
+       
         <div className="skills-group">
           <h3>Skills</h3>
           {createSkills(skills)}
@@ -106,6 +108,7 @@ const EditCharacterSheet = ({ ficha, onSave }) => {
         <button type="submit">Save</button>
       </form>
     </div>
+    
   );
 };
 

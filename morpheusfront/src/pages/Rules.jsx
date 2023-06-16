@@ -71,6 +71,26 @@ const Rules = () => {
         <li><strong>Descanso Longo:</strong> Um descanso longo dura pelo menos 8 horas. Durante esse tempo, os personagens podem recuperar todos os pontos de vida, restaurar magias e recuperar habilidades especiais.</li>
         <li><strong>Descanso de Trance (elfos):</strong> Os elfos meditam profundamente por 4 horas para obter o mesmo benefício de um descanso longo.</li>
       </ul>
+      <h2>Turno</h2>
+      <p>Em um turno de Dungeons & Dragons 5ª Edição (D&D 5e), um personagem pode realizar as seguintes ações:
+
+Ação (Action): É a principal ação que um personagem pode realizar durante seu turno. Alguns exemplos de ações incluem:
+
+Atacar (Attack): Realizar um ataque corpo a corpo ou à distância com uma arma.
+Conjurar uma Magia (Cast a Spell): Lançar uma magia utilizando uma das magias disponíveis para o personagem.
+Usar uma Habilidade Especial (Use a Special Ability): Usar uma habilidade especial do personagem, como Desarmar, Curar ou Furtividade.
+Ação Bônus (Bonus Action): Alguns personagens, classes ou habilidades concedem uma ação bônus adicional durante o turno. Exemplos de ações bônus incluem:
+
+Ataque Adicional (Extra Attack): Alguns personagens têm a capacidade de realizar um ataque adicional como ação bônus.
+Lançar uma Magia Bônus (Cast a Bonus Action Spell): Alguns feitiços têm um tempo de conjuração de ação bônus.
+Usar uma Habilidade Especial Bônus (Use a Bonus Action Special Ability): Alguns personagens têm habilidades especiais que podem ser usadas como ação bônus.
+Movimento (Movement): O personagem pode se mover até sua velocidade de movimento durante o turno. A velocidade de movimento depende da raça e de outras circunstâncias, como efeitos mágicos ou condições.
+
+Reação (Reaction): Durante o turno de outro personagem ou em resposta a uma determinada condição, um personagem pode usar sua reação para realizar uma ação específica. Exemplos de reações incluem:
+
+Ataque de Oportunidade (Opportunity Attack): Quando um inimigo se move para fora do alcance de combate do personagem, ele pode realizar um ataque de oportunidade.
+Conjurar uma Magia de Reação (Cast a Reaction Spell): Alguns feitiços têm um tempo de conjuração de reação.</p>
+      
     </div>
   );
 };

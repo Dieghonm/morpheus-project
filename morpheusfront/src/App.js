@@ -3,21 +3,28 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Sidebar from './pages/Sidebar';
-
 import MyContext from './helpers/context/MyContext';
-
-
-import './App.css';
 import EditToken from './pages/EditToken';
 import Fight from './pages/Fight';
 import Rules from './pages/Rules';
 import Tokens from './pages/Tokens';
 
+import './App.css';
+
+
 function App() {
   const [loggedIn, setLoggedIn] = useState({name:'', email:'', role:''});
-  const [SelectedToken, setSelectedToken] = useState({name:'', email:'', role:''});
+  const [SelectedToken, setSelectedToken] = useState([]);
+  const [characterSheet, setCharacterSheet] = useState([]);
 
-  const params = { loggedIn, setLoggedIn, SelectedToken, setSelectedToken }
+  const params = {
+    loggedIn,
+    setLoggedIn,
+    SelectedToken,
+    setSelectedToken,
+    characterSheet,
+    setCharacterSheet,
+   }
 
   return (
     <MyContext.Provider value={params}>
@@ -38,13 +45,3 @@ function App() {
 }
 
 export default App;
-
-
-          {/* <Route path="/aventuras-fantasticas/NewGame" element={<NewGame />} /> */}
-          {/* <Route path="/aventuras-fantasticas/SaveGame" element={<SaveGame />} />
-          <Route path="/aventuras-fantasticas/HowToPlay" element={<HowToPlay />} />
-          <Route path="/aventuras-fantasticas/AboutUs" element={<AboutUs />} />
-          <Route path="/aventuras-fantasticas/sinopse/:book" element={<Sinopse />} />
-          <Route path="/aventuras-fantasticas/CreateCharacter" element={<CreateCharacter />} />
-          <Route path="/aventuras-fantasticas/Play/:goTo" element={<Play />} />
-          <Route path="/aventuras-fantasticas/makeLogin" element={<Error />} />*/}

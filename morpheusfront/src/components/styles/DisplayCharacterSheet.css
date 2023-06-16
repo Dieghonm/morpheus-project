@@ -1,13 +1,14 @@
 .display-ficha {
-  background-color: var(--input-background-color);
+  background-color: var(--input-border-color);
+  margin: 20px;
   padding: 20px;
-  border-radius: 5px;
+  height: 88vh;
+  width: 100vh;
+  border-radius: 10px;
 }
 
 .display-ficha h2 {
   margin-top: 0;
-  margin-bottom: 20px;
-  color: var(--text-color);
 }
 
 .character-group {
@@ -20,38 +21,76 @@
 .character-info {
   display: flex;
   align-items: center;
+  border: 1px solid var(--input-background-color);
+  padding: 5px 8px;
 }
 
 .character-label {
   font-weight: bold;
-  color: var(--text-color);
   margin-right: 10px;
 }
 
-.character-value {
-  color: var(--text-color);
-}
-
-.equipment-group {
-  margin-bottom: 20px;
-}
-
-.button-group {
+.mid-container {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.attributes-group {
+  border: 1px solid var(--input-background-color);
+  width: 200px;
+  padding: 10px;
+}
+.attributes-group h3 {
+  margin: 0;
+  border-bottom: 1px solid var(--input-background-color);
 }
 
-button:hover {
-  background-color: var(--secondary-color);
+.attribute {
+  display: flex;
+  margin: 5px;
 }
 
+.attribute-name {
+  display: flex;
+  width: 80px;
+}
+
+.attribute-value {
+  margin: 0px 40px;
+}
+
+.PV-group {
+  border: 1px solid var(--input-background-color);
+  width: 150px;
+  margin: 0px 10px;
+  padding: 10px;
+}
+
+.PV-group h3 {
+  margin: 0px;
+  border-bottom: 1px solid var(--input-background-color);
+}
+
+.dado-div {
+  display: flex;
+  margin: 3px;
+}
+
+.dado-div span {
+  margin: 5px;
+}
+
+.vida-calculo span{
+  margin: 0px 7px;
+}
+
+.total-pv {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.total-value {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 10px;
+}

@@ -15,8 +15,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (username && regex.test(email)) {
-    if (username) {
+    if (username && regex.test(email)) {
       setDisabledButton(false);
     } else {
       setDisabledButton(true);

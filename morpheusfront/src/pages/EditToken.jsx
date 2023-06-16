@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import MyContext from '../helpers/context/MyContext';
+import EditCharacterSheet from "../components/EditCharacterSheet";
 
 const EditToken = () => {
   const {loggedIn} = useContext(MyContext)
@@ -11,7 +12,7 @@ const EditToken = () => {
   }
   return (
     <div>
-      EditToken
+      <EditCharacterSheet />
     </div>
   );
 }

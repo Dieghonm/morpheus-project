@@ -1,0 +1,11 @@
+.combat-group {
+  border: 1px solid var(--input-background-color);
+  width: 150px;
+  margin: 0px 10px;
+  padding: 10px;
+}
+
+.combat-group h4 {
+  margin: 8px 0px;
+  border-bottom: 1px solid var(--input-background-color);
+}

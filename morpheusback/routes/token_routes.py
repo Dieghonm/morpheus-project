@@ -5,14 +5,17 @@ token_blueprint = Blueprint('token', __name__)
 
 @token_blueprint.route("/token", methods=["GET"])
 def tokens_get():
-    condition = request.args.get('condition')
-    if condition == "login":
         answer = get_tokens()
         return jsonify(answer)
-    elif condition == "choose_character":
-        nome= request.json.get("name")
-        print(nome)
+
+    
+@token_blueprint.route("/token", methods=["POST"])
+def tokens_post():
+    condition = request.args.get('condition')
+    if condition == "choose_character":
+        data = request.json
+        nome = data.get("nome")
         answer = get_selected_token(nome)
         return jsonify(answer)
     else:
-        return jsonify("Endpoint não encontrado para esta condição.")
+        return jsonify("Endpoint não encontrado para esta condição 2.")

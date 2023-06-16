@@ -50,6 +50,8 @@ def criar_banco():
         inteligencia INT DEFAULT 10,
         sabedoria INT DEFAULT 10,
         carisma INT DEFAULT 10,
+        dado_vida VARCHAR(5) DEFAULT 'd8',
+        proficiencia INT DEFAULT 2,
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
     )
     """

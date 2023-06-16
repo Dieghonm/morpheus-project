@@ -2,37 +2,23 @@ import axios from "axios";
 
 export const TokenRequest = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/token?condition=login");
+    const response = await axios.get("http://localhost:5000/token");
     return response.data;
   } catch (error) {
     console.error("Erro ao efetuar login:", error);
   }
 }
 
-export const SelectedTokenRequest = async (Token) => {
+export const SelectedTokenRequest = async (nome) => {
   try {
-    const response = await axios.get("http://localhost:5000/token?condition=choose_character", {
-      personagemId: Token
+    const response = await axios.post("http://127.0.0.1:5000/token?condition=choose_character", {
+      nome
     });
     return response.data;
   } catch (error) {
     console.error("Erro ao efetuar login:", error);
   }
 }
-
-
-export const selectPersonagem = async (personagemId) => {
-  try {
-    const response = await axios.post("http://localhost:5000/personagem", {
-      personagemId: personagemId
-    });
-    return response.data;
-  } catch (error) {
-    console.error("Erro ao selecionar personagem:", error);
-  }
-}
-
-
 
 export const NewToken = async (name, email) => {
   try {
