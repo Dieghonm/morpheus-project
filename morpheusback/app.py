@@ -1,12 +1,12 @@
 from flask import Flask
-from DB_init.newDB import criar_banco
+from DB_init.criate_DB import criate_DB
 from dotenv import load_dotenv
 from flask_cors import CORS
 from routes.login_routes import login_blueprint
 from routes.token_routes import token_blueprint
 
 load_dotenv()
-criar_banco()
+criate_DB()
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
