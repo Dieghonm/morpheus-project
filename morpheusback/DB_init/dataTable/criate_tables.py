@@ -4,7 +4,7 @@ def criate_tables_usuarios(cursor):
         id INT AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(20),
         email VARCHAR(100) UNIQUE,
-        papel VARCHAR(10) DEFAULT 'Jogador'
+        role VARCHAR(10) DEFAULT 'Jogador'
     )
     """
     cursor.execute(criar_tabela_usuarios_query)
@@ -27,6 +27,8 @@ def criate_tables_personagens(cursor):
         inteligencia INT DEFAULT 10,
         sabedoria INT DEFAULT 10,
         carisma INT DEFAULT 10,
+        resistencia VARCHAR(100),
+        skills  VARCHAR(100),
         FOREIGN KEY (usuarios_id) REFERENCES usuarios(id),
         FOREIGN KEY (classe_id) REFERENCES classes(id),
         FOREIGN KEY (raca_id) REFERENCES racas(id)
@@ -41,7 +43,7 @@ def criate_tables_racas(cursor):
         nome VARCHAR(20) UNIQUE,
         idioma VARCHAR(40),
         atributo VARCHAR(100),
-        movimento INT,
+        movimentacao INT,
         habilidades VARCHAR(500)
     )
     """
@@ -58,6 +60,19 @@ def criate_tables_classes(cursor):
     """
     cursor.execute(criar_tabela_classes_query)
 
+
+def criate_tables_armas(cursor):
+    criar_tabela_armas_query = """
+    CREATE TABLE IF NOT EXISTS armas (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nome VARCHAR(20) UNIQUE,
+        preco VARCHAR(5),
+        dano VARCHAR(20),
+        peso VARCHAR(10),
+        propriedades VARCHAR(100) DEFAULT null
+    );
+    """
+    cursor.execute(criar_tabela_armas_query)
 
 # def criate_tables_(cursor):
 

@@ -1,8 +1,6 @@
-def class_populate(conn, ):
+def class_populate(conn, cursor ):
     def create_class(class_id, name, hit_dice, abilities):
-        cursor = conn.cursor()
-
-        check_class_query = "SELECT * FROM classes WHERE name = %s"
+        check_class_query = "SELECT * FROM classes WHERE nome = %s"
         cursor.execute(check_class_query, (name,))
         class_exists = cursor.fetchone()
 
@@ -10,7 +8,7 @@ def class_populate(conn, ):
             print("Class already exists.")
         else:
             insert_class_query = """
-            INSERT INTO classes (id, name, hit_dice, abilities)
+            INSERT INTO classes (id, nome, dado_vida, habilidades)
             VALUES (%s, %s, %s, %s)
             """
             cursor.execute(insert_class_query, (class_id, name, hit_dice, abilities))
