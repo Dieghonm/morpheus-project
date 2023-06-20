@@ -1,5 +1,5 @@
 from flask import Flask
-from DB.newDB import criar_banco
+from DB_init.newDB import criar_banco
 from dotenv import load_dotenv
 from flask_cors import CORS
 from routes.login_routes import login_blueprint

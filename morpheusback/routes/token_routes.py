@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from DB.tokenDB import get_tokens, get_selected_token
+from DB_updates.tokenDB import get_tokens, get_selected_token
 
 token_blueprint = Blueprint('token', __name__)
 
