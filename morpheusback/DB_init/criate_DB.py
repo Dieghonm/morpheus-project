@@ -1,12 +1,15 @@
 import os
 import mysql.connector
+from DB_init.dataTable.criate_tables import criate_tables_habilidades, criate_tables_armaduras, criate_tables_usuarios, criate_tables_racas, criate_tables_classes, criate_tables_personagens, criate_tables_armas
 from dotenv import load_dotenv
-from DB_init.dataTable.criate_tables import criate_tables_usuarios, criate_tables_racas, criate_tables_classes, criate_tables_personagens, criate_tables_armas
+from DB_init.dataTable.criate_tables_M_M import criate_tables_personagem_armaduras, criate_tables_personagem_armas, criate_tables_personagem_habilidades
 from DB_init.dataSeeding.user_populate import user_populate
 from DB_init.dataSeeding.char_populate import char_populate
 from DB_init.dataSeeding.class_populate import class_populate
 from DB_init.dataSeeding.races_populate import races_populate
 from DB_init.dataSeeding.weapon_populate import weapon_populate
+from DB_init.dataSeeding.armor_populate import armor_populate
+
 
 load_dotenv()
 
@@ -33,13 +36,20 @@ def criate_DB():
     criate_tables_classes(cursor)
     criate_tables_personagens(cursor)
     criate_tables_armas(cursor)
+    criate_tables_armaduras(cursor)
+    criate_tables_habilidades(cursor)
+    
+    criate_tables_personagem_armaduras(cursor)
+    criate_tables_personagem_armas(cursor)
+    criate_tables_personagem_habilidades(cursor)
    
 
     user_populate(conn, cursor)
     class_populate(conn, cursor)
     races_populate(conn, cursor)
     weapon_populate(conn, cursor)
-    # char_populate(conn, cursor)
+    char_populate(conn, cursor)
+    armor_populate(conn, cursor)
 
     
     cursor.close()

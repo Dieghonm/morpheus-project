@@ -16,13 +16,13 @@ def races_populate(conn, cursor):
             print("New race created successfully.")
 
 
-    create_race(1, "Dwarf", "Dwarvish", "Constitution +2", 25, "[Darkvision, Dwarven Resilience]")
-    create_race(2, "Elf", "Elvish", "Dexterity +2", 30, "[Darkvision, Fey Ancestry]")
-    create_race(3, "Halfling", "Halfling", "Dexterity +2", 25, "[Lucky, Brave]")
-    create_race(4, "Human", "Common", "Ability of choice", 30, "[Versatility, Additional Language]")
-    create_race(5, "Dragonborn", "Draconic", "Strength +2, Charisma +1", 30, "[Draconic Ancestry, Breath Weapon]")
-    create_race(6, "Gnome", "Gnomish", "Intelligence +2", 25, "[Darkvision, Gnome Cunning]")
-    create_race(7, "Half-Elf", "Elvish, Common", "Charisma +2, Two other ability scores of choice", 30, "[Darkvision, Fey Ancestry]")
-    create_race(8, "Half-Orc", "Orcish, Common", "Strength +2, Constitution +1", 30, "[Darkvision, Menacing]")
-    create_race(9, "Tiefling", "Infernal, Common", "Intelligence +1, Charisma +2", 30, "[Darkvision, Hellish Resistance]")
+    create_race(1, "Anão", "Anão", "Constituição +2", '7,5m', "[Visão no Escuro, Resistência Anã]")
+    create_race(2, "Elfo", "Élfico", "Destreza +2", '9m', "[Visão no Escuro, Parentesco Élfico]")
+    create_race(3, "Halfling", "Halfling", "Destreza +2", '7,5m', "[Sortudo, Destemido]")
+    create_race(4, "Humano", "Comum", "Atributo de Escolha", '9m', "[Versatilidade, Idioma Adicional]")
+    create_race(5, "Dragonborn", "Draconato", "Força +2, Carisma +1", '9m', "[Linhagem Dracônica, Sopro]")
+    create_race(6, "Gnomo", "Gnômico", "Inteligência +2", '7,5m', "[Visão no Escuro, Astúcia Gnômica]")
+    create_race(7, "Meio-Elfo", "Élfico, Comum", "Carisma +2, Dois outros atributos de escolha", '9m', "[Visão no Escuro, Parentesco Élfico]")
+    create_race(8, "Meio-Orc", "Orc, Comum", "Força +2, Constituição +1", '9m', "[Visão no Escuro, Ameaçador]")
+    create_race(9, "Tiefling", "Infernal, Comum", "Inteligência +1, Carisma +2", '9m', "[Visão no Escuro, Resistência Infernal]")
 

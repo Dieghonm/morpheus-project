@@ -8,7 +8,7 @@ def char_populate(conn, cursor):
             print("Personagem já existe.")
         else:
             insert_personagem_query = """
-            INSERT INTO personagens (id, nome, classe_id, raca_id, resistencia, skills)
+            INSERT INTO personagens (usuario_id, nome, classe_id, raca_id, resistencia, skills)
             VALUES (%s, %s, %s, %s, %s, %s)
             """
             cursor.execute(insert_personagem_query, (usuario_id, nome, classe_id, raca_id, resistencia, skills))
@@ -17,5 +17,5 @@ def char_populate(conn, cursor):
 
         
     new_personagem(1, "Tobias", 3, 1, '[Força, Sabedoria]', '[Atuação, Intimidação, Religião]')
-    new_personagem(1, "P azul generico", 5, 2, '[Constituição, Carisma]', '[Acrobacia, Percepção, Sobrevivência]')
+    new_personagem(1, "B azul generico", 5, 2, '[Constituição, Carisma]', '[Acrobacia, Percepção, Sobrevivência]')
 

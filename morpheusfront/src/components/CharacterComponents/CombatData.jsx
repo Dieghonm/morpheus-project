@@ -6,29 +6,12 @@ const CombatData = () => {
   const {characterSheet} = useContext(MyContext)
   const {
     name,
-    raca,
     classe,
     atributos,
     proficiencia,
+    movimentacao,
   }= characterSheet;
 
-
-  const movement = () => {
-    // Anão 7,5
-    // Elfo 9 
-    // Halfling 7,5
-    // Humano: 9
-    // Draconato: 9
-    // Gnomo 7,5
-    // Meio-Elfo: 9
-    // Meio-Orc: 9
-    // Tiefling: 9
-    const small = ["Anão", 'Halfling', 'Gnomo']
-    if (small.includes(raca)) {
-      return '7.5'
-    }
-    return '9'
-  }
 
   if(name) {
     return (
@@ -41,7 +24,7 @@ const CombatData = () => {
             ): (
             10 + (atributos.Destresa / 2 - 5) + ('equip')
           )}</h4>
-        <h4 className="combat-desl">Deslocamento: {movement()}m</h4>
+        <h4 className="combat-desl">Deslocamento: {movimentacao}</h4>
         <h4 className="combat-prof">Proficiência: {proficiencia}</h4>
       </div>
     );

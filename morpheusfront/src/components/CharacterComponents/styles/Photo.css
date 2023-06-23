@@ -1,0 +1,6 @@
+.photo-group {
+  border: 1px solid var(--input-background-color);
+  margin: 0px 0px;
+  width: 175px;
+  padding: 3px;
+}

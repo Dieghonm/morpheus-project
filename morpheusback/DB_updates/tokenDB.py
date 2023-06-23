@@ -39,9 +39,24 @@ def get_selected_token(nome):
     )
 
     cursor = conn.cursor()
-    select_query = "SELECT * FROM personagens WHERE nome = %s"
+    # select_query = "SELECT * FROM personagens WHERE nome = %s"
+    select_query = """
+        SELECT *
+        FROM personagens
+        JOIN racas ON personagens.raca_id = racas.id
+        JOIN classes ON personagens.classe_id = classes.id
+        WHERE personagens.nome = %s
+    """
     cursor.execute(select_query, (nome,))
+    # field_names = [field[0] for field in cursor.description]
     dados = cursor.fetchall()
     cursor.close()
     conn.close()
+    # return field_names, dados
     return dados
+
+
+    # select_query = """
+
+    # """
+
