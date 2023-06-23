@@ -9,15 +9,16 @@ db_user = os.getenv("DB_USER")
 db_password = os.getenv("DB_PASSWORD")
 db_name = os.getenv("DB_NAME")
 
-# Função para obter os dados dos usuários
-def get_tokens():
-    conn = mysql.connector.connect(
+def connect_to_database():
+    return mysql.connector.connect(
         host=db_host,
         user=db_user,
         password=db_password,
         database=db_name
     )
 
+def get_tokens():
+    conn = connect_to_database()
     cursor = conn.cursor()
     select_query = """
     SELECT usuarios.nome, personagens.nome
@@ -31,15 +32,8 @@ def get_tokens():
     return dados
 
 def get_selected_token(nome):
-    conn = mysql.connector.connect(
-        host=db_host,
-        user=db_user,
-        password=db_password,
-        database=db_name
-    )
-
+    conn = connect_to_database()
     cursor = conn.cursor()
-    # select_query = "SELECT * FROM personagens WHERE nome = %s"
     select_query = """
         SELECT *
         FROM personagens
@@ -48,15 +42,29 @@ def get_selected_token(nome):
         WHERE personagens.nome = %s
     """
     cursor.execute(select_query, (nome,))
-    # field_names = [field[0] for field in cursor.description]
     dados = cursor.fetchall()
     cursor.close()
     conn.close()
-    # return field_names, dados
     return dados
 
+def new_personagem(usuario_id, nome, classe_id, raca_id, pericias):
+    conn = connect_to_database()
+    cursor = conn.cursor()
 
-    # select_query = """
+    check_personagem_query = "SELECT * FROM personagens WHERE nome = %s"
+    cursor.execute(check_personagem_query, (nome,))
+    personagem_exists = cursor.fetchone()
 
-    # """
-
+    if personagem_exists:
+        print("Personagem já existe.")
+    else:
+        insert_personagem_query = """
+        INSERT INTO personagens (usuario_id, nome, classe_id, raca_id, pericias)
+        VALUES (%s, %s, %s, %s, %s)
+        """
+        cursor.execute(insert_personagem_query, (usuario_id, nome, classe_id, raca_id, pericias))
+        conn.commit()
+        print("Novo personagem cadastrado com sucesso.")
+    
+    cursor.close()
+    conn.close()

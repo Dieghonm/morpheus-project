@@ -26,7 +26,6 @@ def criate_tables_personagens(cursor):
         inteligencia INT DEFAULT 10,
         sabedoria INT DEFAULT 10,
         carisma INT DEFAULT 10,
-        resistencia VARCHAR(100),
         skills  VARCHAR(100),
         vida INT DEFAULT 15,
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
@@ -55,7 +54,9 @@ def criate_tables_classes(cursor):
         id INT AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(20) UNIQUE,
         dado_vida VARCHAR(5) DEFAULT 'd8',
+        resistencias VARCHAR(30),
         habilidades VARCHAR(500)
+
     )
     """
     cursor.execute(criar_tabela_classes_query)
@@ -90,7 +91,6 @@ def criate_tables_armaduras(cursor):
 
 
 def criate_tables_habilidades(cursor):
-    print('<--------------------------')
     criar_tabela_habilidades_query = """
     CREATE TABLE IF NOT EXISTS habilidades (
         id INT AUTO_INCREMENT PRIMARY KEY,

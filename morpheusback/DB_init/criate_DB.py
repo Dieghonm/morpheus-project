@@ -4,11 +4,11 @@ from DB_init.dataTable.criate_tables import criate_tables_habilidades, criate_ta
 from dotenv import load_dotenv
 from DB_init.dataTable.criate_tables_M_M import criate_tables_personagem_armaduras, criate_tables_personagem_armas, criate_tables_personagem_habilidades
 from DB_init.dataSeeding.user_populate import user_populate
-from DB_init.dataSeeding.char_populate import char_populate
 from DB_init.dataSeeding.class_populate import class_populate
 from DB_init.dataSeeding.races_populate import races_populate
 from DB_init.dataSeeding.weapon_populate import weapon_populate
 from DB_init.dataSeeding.armor_populate import armor_populate
+from DB_updates.tokenDB import new_personagem
 
 
 load_dotenv()
@@ -48,9 +48,10 @@ def criate_DB():
     class_populate(conn, cursor)
     races_populate(conn, cursor)
     weapon_populate(conn, cursor)
-    char_populate(conn, cursor)
     armor_populate(conn, cursor)
-
     
+    new_personagem(1, "Frekazoid", 3, 1, '[Atuação, Intimidação, Religião]')
+    new_personagem(1, "Cosmo", 5, 2, '[Acrobacia, Percepção, Sobrevivência]')
+
     cursor.close()
     conn.close()
