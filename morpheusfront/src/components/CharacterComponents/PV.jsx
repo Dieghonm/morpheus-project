@@ -26,7 +26,7 @@ const PV = () => {
           <span>x</span>
           <span>{dado}</span>
           <span>+</span>
-          <span>{atributos.Constituição / 2 - 5}</span>
+          <span>{Math.floor(atributos.Constituição / 2) - 5}</span>
         </div>
         <div className="total-pv">
           <span >Total:</span>

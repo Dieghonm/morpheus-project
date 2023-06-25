@@ -26,7 +26,7 @@ def criate_tables_personagens(cursor):
         inteligencia INT DEFAULT 10,
         sabedoria INT DEFAULT 10,
         carisma INT DEFAULT 10,
-        skills  VARCHAR(100),
+        pericias  VARCHAR(100),
         vida INT DEFAULT 15,
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
         FOREIGN KEY (classe_id) REFERENCES classes(id),

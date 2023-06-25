@@ -19,8 +19,8 @@ const SavingThrow = () => {
         <div key={attribute} className="saving">
           {array.includes(attribute)? <input type="checkbox" className="saving-input" checked /> : <input type="checkbox" disabled className="saving-input" /> }
           <span className="saving-name">{attribute}</span>
-          <span className="saving-value">{value / 2 - 5}</span>
-          <span className="saving-Mod">{array.includes(attribute)? proficiencia + (value / 2 - 5) : value / 2 - 5 }</span>
+          <span className="saving-value">{Math.floor(value / 2) - 5}</span>
+          <span className="saving-Mod">{array.includes(attribute)? proficiencia + (Math.floor(value / 2) - 5) : Math.floor(value / 2) - 5 }</span>
         </div>
       ));
     } 

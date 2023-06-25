@@ -4,18 +4,34 @@ import MyContext from '../../helpers/context/MyContext'
 import'./styles/Attributes.css'
 
 const Attributes = () => {
-  const {characterSheet} = useContext(MyContext)
+  const {characterSheet, setCharacterSheet, screen} = useContext(MyContext)
   const {
     atributos,
   }= characterSheet;
 
+  const skillChang = (attribute, value) => {
+    // console.log('mostrar',characterSheet.atributos, attribute, value);
+    const atributos = { ...characterSheet.atributos, [attribute]: value}
+    // console.log('obj',{...characterSheet, atributos});
+    setCharacterSheet({...characterSheet, atributos})
+  }
+
   const renderAttributes = () => {
-    if (atributos) {
+    if (atributos ) {
+      if (screen === 'ficha') {
+        return Object.entries(atributos).map(([attribute, value]) => (
+          <div key={attribute} className="attribute">
+            <span className="attribute-name">{attribute}:</span>
+            <span className="attribute-value">{value}</span>
+            <span className="attribute-Mod">{Math.floor(value / 2) - 5}</span>
+          </div>
+        ));
+      }
       return Object.entries(atributos).map(([attribute, value]) => (
         <div key={attribute} className="attribute">
           <span className="attribute-name">{attribute}:</span>
-          <span className="attribute-value">{value}</span>
-          <span className="attribute-Mod">{value / 2 - 5}</span>
+          <input className="attribute-input" type="number" onChange={(e) => skillChang(attribute, e.target.value)} value={value}/>
+          <span className="attribute-Mod">{Math.floor(value / 2) - 5}</span>
         </div>
       ));
     } 

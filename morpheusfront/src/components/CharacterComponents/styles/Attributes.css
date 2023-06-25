@@ -20,12 +20,18 @@
 }
 
 .attribute-value {
-  margin: 0px 5px;
+  margin: 1.5px 5px;
   width: 40px;
   background-color: var(--input-secondary);
 }
 
 .attribute-Mod {
+  width: 40px;
+  background-color: var(--input-secondary);
+}
+
+.attribute-input{
+  margin: 0px 5px;
   width: 40px;
   background-color: var(--input-secondary);
 }

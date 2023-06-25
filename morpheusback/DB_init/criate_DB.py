@@ -50,6 +50,7 @@ def criate_DB():
     weapon_populate(conn, cursor)
     armor_populate(conn, cursor)
     
+    new_personagem(1, "Novo Personagem", 1, 4, '[]')
     new_personagem(1, "Frekazoid", 3, 1, '[Atuação, Intimidação, Religião]')
     new_personagem(1, "Cosmo", 5, 2, '[Acrobacia, Percepção, Sobrevivência]')
 

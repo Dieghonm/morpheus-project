@@ -7,7 +7,7 @@ import { TokenRequest } from '../helpers/requests/token';
 import { useState } from 'react';
 
 const SidebarButtons = () => {
-  const {loggedIn, setSelectedToken} = useContext(MyContext)
+  const {loggedIn, setSelectedToken, setScreen} = useContext(MyContext)
   const [Tokens, setTokens] = useState([]);
   const [Filter, setFilter] = useState(false);
 
@@ -21,17 +21,25 @@ const SidebarButtons = () => {
   };
 
   const criateTokenLink = (Token) => {
-    if(Filter && Token[0] !== loggedIn.name) {
+    if((Filter && Token[0] !== loggedIn.name) || Token[1] === 'Novo Personagem') {
       return null
     }
 
     return (
       <Link key={Token[1]} to="/Tokens">
-        <button className="sidebar-button" onClick={() => setSelectedToken(Token) }>
+        <button className="sidebar-button" onClick={() => {
+          setSelectedToken(Token)
+          setScreen('ficha')
+        } }>
           {Token[1]}
         </button>
       </Link>
     )
+  }
+
+  const newCaracter = () => {
+    setScreen('edit')
+    setSelectedToken(Tokens[0])
   }
 
   return (
@@ -40,7 +48,8 @@ const SidebarButtons = () => {
         <Link to="/Fight"><button className="sidebar-button">Combate</button></Link>
         <Link to="/Rules"><button className="sidebar-button">Regras</button></Link>
         <p>Personagens</p>
-        <Link to="/EditToken"><button className="sidebar-button">Criar ficha</button></Link>
+        {console.log(Tokens[0])}
+        <Link to="/Tokens"><button className="sidebar-button" onClick={newCaracter}>Criar ficha</button></Link>
         <div>
           <input selected onClick={() => setFilter(!Filter)} id="switch-shadow" type="checkbox" />
           <label htmlFor="switch-shadow">Filtrar personagens</label>

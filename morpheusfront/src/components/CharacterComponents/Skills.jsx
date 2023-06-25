@@ -43,8 +43,8 @@ const Skills = () => {
           <div key={skill[0]} className="skill">
             {array.includes(skill[0])? <input type="checkbox" className="skill-input" checked /> : <input type="checkbox" disabled className="skill-input" /> }
             <span className="skill-name">{skill[0]}:</span>
-            <span className="skill-modifier">{skill[1].slice(0, 3)}: {atributos[skill[1]] / 2 - 5}</span>
-            <span className="skill-total">{array.includes(skill[0])? proficiencia + (atributos[skill[1]] / 2 - 5) : atributos[skill[1]] / 2 - 5 }</span>
+            <span className="skill-modifier">{skill[1].slice(0, 3)}: {Math.floor(atributos[skill[1]] / 2) - 5}</span>
+            <span className="skill-total">{array.includes(skill[0])? proficiencia + (Math.floor(atributos[skill[1]] / 2) - 5) : Math.floor(atributos[skill[1]] / 2) - 5 }</span>
           </div>
         )
       }
