@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Sidebar from './pages/Sidebar';
 import MyContext from './helpers/context/MyContext';
-import EditToken from './pages/EditToken';
 import Fight from './pages/Fight';
 import Rules from './pages/Rules';
 import Tokens from './pages/Tokens';
@@ -16,6 +15,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState({name:'', email:'', role:''});
   const [SelectedToken, setSelectedToken] = useState([]);
   const [characterSheet, setCharacterSheet] = useState([]);
+  const [screen, setScreen] = useState('ficha');
+  const [imutables, setImutables] = useState({raca:[], classe:[], armas:[], armaduras:[]});
 
   const params = {
     loggedIn,
@@ -24,6 +25,10 @@ function App() {
     setSelectedToken,
     characterSheet,
     setCharacterSheet,
+    screen,
+    setScreen,
+    imutables,
+    setImutables,
    }
 
   return (
@@ -32,7 +37,6 @@ function App() {
         <div className="App">
           <Sidebar />
           <Routes>
-            <Route path="/EditToken" element={<EditToken />} />
             <Route path="/Fight" element={<Fight />} /> 
             <Route path="/Rules" element={<Rules />} /> 
             <Route path="/Tokens" element={<Tokens />} /> 

@@ -13,7 +13,7 @@ const CombatData = () => {
   }= characterSheet;
 
 
-  if(name) {
+  if(classe) {
     return (
       <div className="combat-group">
         <h4 className="combat-init">Iniciativa: {atributos.Destresa/2 - 5}</h4>

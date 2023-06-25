@@ -11,7 +11,7 @@ const LoginForm = () => {
   const [contas, setContas] = useState([]);
   const [disabledButton, setDisabledButton] = useState(true);
   const [DBresponse, setDBresponse] = useState('');
-  const {setLoggedIn} = useContext(MyContext)
+  const {setLoggedIn, setImutables} = useContext(MyContext)
 
   useEffect(() => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,7 +29,10 @@ const LoginForm = () => {
   const fetchData = async () => {
     try {
       const response = await LoginRequest();
-      setContas(response);
+      setContas(response[0]);
+      setImutables({raca:response[2], classe:response[1], armas:response[4], armaduras:response[3]})
+
+      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -106,7 +109,7 @@ const LoginForm = () => {
       </button>
       <div className="profile-icons">
       <p>Contas ja cadastradas</p>
-        {contas? contas.length=== 0? backLoading(): contas.map((conta) => iconMaker(conta)) : backOff()}
+        {contas? contas.length === 0? backLoading(): contas.map((conta) => iconMaker(conta)) : backOff()}
       </div>
       <a href="https://br.gravatar.com/">
         Cadastre-se aqui para ter um avatar

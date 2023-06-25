@@ -56,3 +56,69 @@ def new_user(name, email):
     conn.close()
 
     return "Novo usuário cadastrado com sucesso"
+
+def get_class():
+    conn = mysql.connector.connect(
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
+    )
+
+    cursor = conn.cursor()
+    select_query = "SELECT nome FROM classes"
+    cursor.execute(select_query)
+    dados = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return [dado[0] for dado in dados]
+
+def get_races():
+    conn = mysql.connector.connect(
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
+    )
+
+    cursor = conn.cursor()
+    select_query = "SELECT nome FROM racas"
+    cursor.execute(select_query)
+    racas = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    
+    return [raca[0] for raca in racas]
+
+
+def get_armas():
+    conn = mysql.connector.connect(
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
+    )
+
+    cursor = conn.cursor()
+    select_query = "SELECT nome FROM armas"
+    cursor.execute(select_query)
+    dados = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return [dado[0] for dado in dados]
+
+def get_armaduras():
+    conn = mysql.connector.connect(
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
+    )
+
+    cursor = conn.cursor()
+    select_query = "SELECT nome FROM armaduras"
+    cursor.execute(select_query)
+    dados = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return [dado[0] for dado in dados]

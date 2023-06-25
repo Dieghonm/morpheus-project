@@ -7,6 +7,7 @@ const Skills = () => {
   const {characterSheet} = useContext(MyContext)
   const {
     name,
+    classe,
     atributos,
     skills,
     proficiencia
@@ -58,7 +59,7 @@ const Skills = () => {
     });
   };
 
-  if (name) {
+  if (classe) {
     return (
       <div className="skills-group">
           <h3>Skills</h3>

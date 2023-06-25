@@ -1,0 +1,51 @@
+.character-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  margin-bottom: 15px;
+}
+
+.character-info {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--input-background-color);
+  padding: 3px 5px;
+}
+
+.character-label {
+  font-weight: bold;
+  margin: 2px 10px 2px 0px;
+}
+
+.mid-container {
+  display: flex;
+}
+
+.mid-span {
+  display: flex;
+}
+
+select {
+  background-color: var(--input-background-color);
+  color: var(--text-color);  
+}
+
+.edit-character-value {
+  background-color: var(--input-background-color);
+  color: var(--text-color);  
+  width: 100px;
+}
+
+.nivel-input {
+  background-color: var(--input-background-color);
+  color: var(--text-color); 
+  width: 40px;
+}
+
+.experiencia-input {
+  background-color: var(--input-background-color);
+  color: var(--text-color); 
+  width: 60px;
+
+}
+
