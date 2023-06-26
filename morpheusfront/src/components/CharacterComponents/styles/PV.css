@@ -36,3 +36,12 @@
   padding: 10px;
   background-color: var(--input-secondary);
 }
+
+.pv-input {
+  margin: 0px 5px;
+  width: 60px;
+  font-size: 30px;
+  padding: 10px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);  
+}

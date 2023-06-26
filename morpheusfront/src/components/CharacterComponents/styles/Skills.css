@@ -1,45 +1,48 @@
 .skills-group {
   border: 1px solid var(--input-background-color);
-  margin: 0px;
+  margin: 0;
   padding: 8px;
   margin-top: 10px;
 }
 
 .skills-group h3 {
   font-size: 17px;
-  margin: 0px;
+  margin: 0;
   border-bottom: 1px solid var(--input-background-color);
 }
 
 .skill {
   display: flex;
-  margin: 5px 0px;
+  margin: 5px 0;
   font-size: 13px;
 }
 
 .skill-input {
   width: 15px;
   margin: 0;
+  color: blue;
+
 }
 
 .skill-name {
-  width: 110px;
+  flex: 1;
+  min-width: 110px;
   background-color: var(--input-secondary);
 }
 
 .skill-modifier {
-  margin: 0px 5px;
-  width: 40px;
+  margin: 0 5px;
+  min-width: 40px;
   background-color: var(--input-secondary);
 }
 
 .skill-value {
-  width: 40px;
+  min-width: 40px;
   background-color: var(--input-secondary);
 }
 
 .skill-total {
-  width: 30px;
-  margin: 0px 5px;
+  min-width: 30px;
+  margin: 0 5px;
   background-color: var(--input-secondary);
 }

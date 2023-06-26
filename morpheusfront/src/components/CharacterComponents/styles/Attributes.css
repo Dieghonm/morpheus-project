@@ -33,5 +33,6 @@
 .attribute-input{
   margin: 0px 5px;
   width: 40px;
-  background-color: var(--input-secondary);
+  background-color: var(--input-background-color);
+  color: var(--text-color);  
 }

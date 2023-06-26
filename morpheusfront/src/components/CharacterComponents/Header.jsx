@@ -41,15 +41,15 @@ const Header = () => {
       return Object.entries(data).map(([item, value]) => {
         if (item === 'Nivel') {
           return (
-            <div key={item} className="character-info">
+            <div key={item + 'edit'} className="character-info">
               <span className="character-label">{item}:</span>
               <input className="nivel-input" type="number" onChange={(e) => handleChang('nivel', e.target.value)} value={value}/>
             </div>
           )
         }
-        if( item === 'Experiencia') {
+        if(item === 'Experiencia') {
           return (
-            <div key={item} className="character-info">
+            <div key={item + 'edit'} className="character-info">
               <span className="character-label">{item}:</span>
               <input onChange={(e)=> handleChang("experiencia", e.target.value)} type="number" className="experiencia-input" value={value} />
             </div>
@@ -57,7 +57,7 @@ const Header = () => {
         }
         if(item === 'Raça'){
           return (
-            <div key={item} className="character-info">
+            <div key={item + 'edit'} className="character-info">
               <span className="character-label">{item}:</span>
               <select name="racas" value={raca} className="raca-select" onChange={(e) => handleChang('raca', e.target.value)}>
                 {imutables.raca.map((item) => <option value={item}>{item}</option>)}
@@ -66,7 +66,7 @@ const Header = () => {
         )}
         if(item === 'Classe'){
           return (
-            <div key={item} className="character-info">
+            <div key={item + 'edit'} className="character-info">
               <span className="character-label">{item}:</span>
               <select name="racas" value={classe} className="classe-select" onChange={(e) => handleChang('classe', e.target.value)}>
                 {imutables.classe.map((item) => <option value={item}>{item}</option>)}
@@ -75,7 +75,7 @@ const Header = () => {
         )}
         if(item === 'Jogador'){
           return (
-            <div key={item} className="character-info">
+            <div key={item + 'edit'} className="character-info">
             <span className="character-label">{item}:</span>
             <span className="character-value">{value}</span>
           </div>
@@ -83,7 +83,7 @@ const Header = () => {
         }
         if(item === 'Nome'){
           return (
-            <div key={item} className="character-info">
+            <div key={item + 'edit'} className="character-info">
               <span className="character-label">{item}:</span>
               <input type="text" className="edit-character-value" onChange={(e) => handleChang('name', e.target.value)} value={value} />
             </div>

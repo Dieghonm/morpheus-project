@@ -4,7 +4,7 @@ import MyContext from '../../helpers/context/MyContext'
 import'./styles/PV.css'
 
 const PV = () => {
-  const {characterSheet} = useContext(MyContext)
+  const {characterSheet, setCharacterSheet, screen} = useContext(MyContext)
   const {
     nivel,
     pontos_vida,
@@ -12,7 +12,7 @@ const PV = () => {
     dado,
   }= characterSheet;
 
-  if(pontos_vida) {
+  if(dado) {
     return (
       <div className="PV-group">
         <h3>Pontos de Vida</h3>
@@ -30,7 +30,17 @@ const PV = () => {
         </div>
         <div className="total-pv">
           <span >Total:</span>
-          <span className="total-value">{pontos_vida}</span>
+          {screen === 'edit' ? 
+            <input 
+              className="pv-input" 
+              type="number" 
+              onChange={(e) => setCharacterSheet({...characterSheet, 'pontos_vida':e.target.value})} 
+              value={pontos_vida}
+            />
+            :
+            <span className="total-value">{pontos_vida}</span>
+          }
+          
         </div>
       </div>
     )

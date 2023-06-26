@@ -48,7 +48,6 @@ const SidebarButtons = () => {
         <Link to="/Fight"><button className="sidebar-button">Combate</button></Link>
         <Link to="/Rules"><button className="sidebar-button">Regras</button></Link>
         <p>Personagens</p>
-        {console.log(Tokens[0])}
         <Link to="/Tokens"><button className="sidebar-button" onClick={newCaracter}>Criar ficha</button></Link>
         <div>
           <input selected onClick={() => setFilter(!Filter)} id="switch-shadow" type="checkbox" />

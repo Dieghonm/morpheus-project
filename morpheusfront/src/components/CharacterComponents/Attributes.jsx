@@ -10,9 +10,7 @@ const Attributes = () => {
   }= characterSheet;
 
   const skillChang = (attribute, value) => {
-    // console.log('mostrar',characterSheet.atributos, attribute, value);
     const atributos = { ...characterSheet.atributos, [attribute]: value}
-    // console.log('obj',{...characterSheet, atributos});
     setCharacterSheet({...characterSheet, atributos})
   }
 
