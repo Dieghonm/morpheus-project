@@ -1,0 +1,96 @@
+.ranged-group,
+.treasure-group,
+.equipment-group {
+  border: 1px solid var(--input-background-color);
+  margin: 0;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.ranged-group {
+  width: 320px;
+}
+
+.ranged-group h4,
+.treasure-group h4,
+.equipment-group h4 {
+  font-size: 17px;
+  margin: 0;
+  border-bottom: 1px solid var(--input-background-color);
+}
+
+.ranged-title-group,
+.treasure-title-group,
+.equipment-title-group {
+  display: flex;
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.ranged-Quantidade,
+.treasure-Quantidade,
+.equipment-Quantidade {
+  flex: 1;
+  min-width: 30px;
+  background-color: var(--input-secondary);
+}
+
+.treasure-Nome,
+.equipment-Item {
+  margin: 0 5px;
+  width: 200px;
+  background-color: var(--input-secondary);
+}
+
+.treasure-Descrição,
+.equipment-Descrição {
+  min-width: 400px;
+  background-color: var(--input-secondary);
+}
+
+.treasure-delit,
+.equipment-delit {
+  min-width: 15px;
+  margin: 0 1px;
+  background-color: var(--input-secondary);
+}
+
+.ranged-Quantidade-input,
+.treasure-Quantidade-input,
+.equipment-Quantidade-input {
+  margin: 0;
+  width: 30px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}
+
+.ranged-Nome-input,
+.treasure-Nome-input,
+.equipment-Item-input,
+.treasure-Descrição-input,
+.equipment-Descrição-input {
+  margin: 0 5px;
+  width: 170px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}
+
+.treasure-Descrição-input,
+.equipment-Descrição-input {
+  width: 340px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}
+
+.ranged-Tipo {
+  font-size: 13px;
+  width: 90px;
+  margin: 0 1px;
+  background-color: var(--input-secondary);
+}
+
+.ranged-name {
+  margin: 0 2px;
+  min-width: 185px;
+  background-color: var(--input-secondary);
+}

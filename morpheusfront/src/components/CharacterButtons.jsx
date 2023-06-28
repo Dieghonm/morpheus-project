@@ -13,8 +13,8 @@ const CharacterButtons = () => {
     <div>
       <button onClick={() => handonclick('ficha')}>Ficha</button>
       <button onClick={() => handonclick('edit')}>Editar Ficha</button>
-      <button onClick={() => handonclick('habilidades')}>Habilidades</button>
       <button onClick={() => handonclick('equipamentos')}>Equipamentos</button>
+      <button onClick={() => handonclick('habilidades')}>Habilidades</button>
       <button onClick={() => handonclick('magias')}>Magias</button>
       <button onClick={() => handonclick('anotacoes')}>Anotações</button>
     </div>

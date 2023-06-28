@@ -38,13 +38,13 @@ GitHub: Hospedagem e gerenciamento de repositórios.
 
 ### Frontend
 
-1. Navegue até a pasta "front": `cd front`
+1. Navegue até a pasta "front": `cd morpheusfront`
 2. Instale as dependências do frontend: `npm install`
 
 ### Backend
 
-1. Navegue até a pasta "back": `cd back`
-2. Crie um ambiente virtual (opcional): `python -m venv env`
+1. Navegue até a pasta "back": `cd morpheusback`
+2. Crie um ambiente virtual (opcional): `python3 -m venv env`
 3. Ative o ambiente virtual (se criado): `source env/bin/activate`
 4. Instale as dependências do backend: `pip install -r requirements.txt`
 
@@ -103,6 +103,18 @@ front
 
 
 back
-flask_cors
+instalaçoes
+pip install flask
+pip install mysql-connector-python
+pip install python-dotenv
+pip install flask-cors
+
+iniciar o DB
+sudo service mysql start
+mysql -u <username> -p
+
+comandos DB
+DROP DATABASE;
+DROP DATABASE morpheus;
 
  -->

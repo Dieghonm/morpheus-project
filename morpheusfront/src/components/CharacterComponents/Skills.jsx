@@ -56,7 +56,7 @@ const Skills = () => {
       if (i) {
         const isChecked = skillsArray.includes(skill[0]);
         const modifier = Math.floor(atributos[skill[1]] / 2) - 5;
-        const total = isChecked ? proficiencia + modifier : modifier;
+        const total = isChecked ? parseInt(proficiencia) + modifier : modifier;
 
         return (
           <div key={skill[0]} className="skill" onClick={() => skillSelect(skill[0])}>

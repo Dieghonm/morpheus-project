@@ -33,3 +33,15 @@ export const NewToken = async (name, email) => {
     // Faça o tratamento necessário para exibir uma mensagem de erro ao usuário
   }
 };
+
+export const EditToken = async (data) => {
+  console.log(data);
+  try {
+    const response = await axios.post("http://localhost:5000/newtoken", data );
+    return response.data;
+    // Faça o tratamento necessário com a resposta do servidor
+  } catch (error) {
+    console.error("Erro ao efetuar login:", error);
+    // Faça o tratamento necessário para exibir uma mensagem de erro ao usuário
+  }
+};

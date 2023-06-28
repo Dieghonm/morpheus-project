@@ -43,11 +43,18 @@ def get_selected_token(nome):
     """
     cursor.execute(select_query, (nome,))
     dados = cursor.fetchall()
+
+    columns = [column[0] for column in cursor.description]
+    result = []
+    for row in dados:
+        result.append(dict(zip(columns, row)))
+
     cursor.close()
     conn.close()
-    return dados
+    return result
 
-def new_personagem(usuario_id, nome, classe_id, raca_id, pericias):
+
+def new_personagem(usuario_id, nome, classe_id, raca_id, skills):
     conn = connect_to_database()
     cursor = conn.cursor()
 
@@ -59,10 +66,10 @@ def new_personagem(usuario_id, nome, classe_id, raca_id, pericias):
         print("Personagem já existe.")
     else:
         insert_personagem_query = """
-        INSERT INTO personagens (usuario_id, nome, classe_id, raca_id, pericias)
+        INSERT INTO personagens (usuario_id, nome, classe_id, raca_id, skills)
         VALUES (%s, %s, %s, %s, %s)
         """
-        cursor.execute(insert_personagem_query, (usuario_id, nome, classe_id, raca_id, pericias))
+        cursor.execute(insert_personagem_query, (usuario_id, nome, classe_id, raca_id, skills))
         conn.commit()
         print("Novo personagem cadastrado com sucesso.")
     

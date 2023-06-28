@@ -7,20 +7,19 @@ const SavingThrow = () => {
   const {characterSheet} = useContext(MyContext)
   const {
     atributos,
-    resistencia,
+    resistencias,
     proficiencia,
   }= characterSheet;
 
   const renderAttributes = () => {
-    
     if (atributos) {
-      const array = resistencia.slice(1, -1).split(',').map(item => item.trim());
+      const array = resistencias.slice(1, -1).split(',').map(item => item.trim());
       return Object.entries(atributos).map(([attribute, value]) => (
         <div key={attribute} className="saving">
           {array.includes(attribute)? <input type="checkbox" className="saving-input" checked /> : <input type="checkbox" disabled className="saving-input" /> }
           <span className="saving-name">{attribute}</span>
           <span className="saving-value">{Math.floor(value / 2) - 5}</span>
-          <span className="saving-Mod">{array.includes(attribute)? proficiencia + (Math.floor(value / 2) - 5) : Math.floor(value / 2) - 5 }</span>
+          <span className="saving-Mod">{array.includes(attribute)? parseInt(proficiencia) + (Math.floor(value / 2) - 5) : Math.floor(value / 2) - 5 }</span>
         </div>
       ));
     } 

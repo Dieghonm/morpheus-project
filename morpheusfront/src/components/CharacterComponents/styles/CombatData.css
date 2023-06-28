@@ -36,3 +36,25 @@
   padding: 3px 0px;
   background-color: var(--input-secondary);
 }
+
+.combat-ca-edit{
+  margin: 7px 0px 0px;
+  padding: 1px 0px 0px;
+  background-color: var(--input-secondary);
+}
+
+
+.combat-prof-input {
+  margin: 0;
+  width: 30px;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}
+
+.combat-ca-input {
+  margin: 0;
+  width: 50px;
+  font-size: 17x;
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+}

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import MyContext from '../helpers/context/MyContext';
 
 import Header from './CharacterComponents/Header';
 import Attributes from './CharacterComponents/Attributes';
@@ -8,14 +9,19 @@ import Skills from './CharacterComponents/Skills';
 import Attacks from './CharacterComponents/Attacks';
 import SavingThrow from './CharacterComponents/SavingThrow';
 import Photo from './CharacterComponents/Photo';
-
-import './styles/DisplayCharacterSheet.css';
+import { EditToken } from '../helpers/requests/token';
 
 const DisplayCharacterSheet = () => {
+  const { characterSheet, loggedIn } = useContext(MyContext);
+
+  const saveCharacter = () => {
+    const { email } = loggedIn
+    EditToken({email, ...characterSheet}
+    );
+  }
 
   return (
-    <div className="display-ficha">
-      <h2>Display Ficha</h2>
+    <div >
         <Header />
       <div className='mid-container'>
         <Attributes />
@@ -32,6 +38,7 @@ const DisplayCharacterSheet = () => {
           <Attacks /> 
         </div>
       </div>
+        <button onClick={saveCharacter}>Salvar </button>
     </div>
   );
 };

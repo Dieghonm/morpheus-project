@@ -2,6 +2,7 @@
 
 # dependencies
 /morpheusfront/node_modules
+/morpheusback/env
 /.pnp
 .pnp.js
 .gitignore

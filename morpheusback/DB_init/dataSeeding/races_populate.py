@@ -1,17 +1,17 @@
 def races_populate(conn, cursor):
-    def create_race(race_id, name, language, attribute, movement, abilities):
-        check_race_query = "SELECT * FROM racas WHERE nome = %s"
-        cursor.execute(check_race_query, (name,))
+    def create_race(race_id, race_name, language, attribute, movement, habilidades_raciais):
+        check_race_query = "SELECT * FROM racas WHERE race_name = %s"
+        cursor.execute(check_race_query, (race_name,))
         race_exists = cursor.fetchone()
 
         if race_exists:
             print("Race already exists.")
         else:
             insert_race_query = """
-            INSERT INTO racas (id, nome, idioma, atributo, movimentacao, habilidades)
+            INSERT INTO racas (id, race_name, idioma, atributo, movimentacao, habilidades_raciais)
             VALUES (%s, %s, %s, %s, %s, %s)
             """
-            cursor.execute(insert_race_query, (race_id, name, language, attribute, movement, abilities))
+            cursor.execute(insert_race_query, (race_id, race_name, language, attribute, movement, habilidades_raciais))
             conn.commit()
             print("New race created successfully.")
 

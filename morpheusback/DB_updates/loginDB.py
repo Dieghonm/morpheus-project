@@ -66,7 +66,7 @@ def get_class():
     )
 
     cursor = conn.cursor()
-    select_query = "SELECT nome FROM classes"
+    select_query = "SELECT class_name FROM classes"
     cursor.execute(select_query)
     dados = cursor.fetchall()
     cursor.close()
@@ -82,7 +82,7 @@ def get_races():
     )
 
     cursor = conn.cursor()
-    select_query = "SELECT nome FROM racas"
+    select_query = "SELECT race_name FROM racas"
     cursor.execute(select_query)
     racas = cursor.fetchall()
     cursor.close()

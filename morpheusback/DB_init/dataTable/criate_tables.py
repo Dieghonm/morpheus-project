@@ -15,19 +15,22 @@ def criate_tables_personagens(cursor):
         id INT AUTO_INCREMENT PRIMARY KEY,
         usuario_id INT,
         nome VARCHAR(100) UNIQUE,
-        classe_id INT,
-        raca_id INT,
         nivel INT DEFAULT 1,
-        pontos_vida INT DEFAULT 10,
         experiencia INT DEFAULT 0,
+        pontos_vida INT DEFAULT 10,
         forca INT DEFAULT 10,
         destreza INT DEFAULT 10,
         constituicao INT DEFAULT 10,
         inteligencia INT DEFAULT 10,
         sabedoria INT DEFAULT 10,
         carisma INT DEFAULT 10,
-        pericias  VARCHAR(100),
-        vida INT DEFAULT 15,
+        skills  VARCHAR(100),
+        ca INT DEFAULT 10,
+        raca_id INT,
+        classe_id INT,
+        proficiencia INT DEFAULT 2,
+        ataques VARCHAR(500),
+
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
         FOREIGN KEY (classe_id) REFERENCES classes(id),
         FOREIGN KEY (raca_id) REFERENCES racas(id)
@@ -39,11 +42,11 @@ def criate_tables_racas(cursor):
     criar_tabela_racas_query = """
     CREATE TABLE IF NOT EXISTS racas (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(20) UNIQUE,
+        race_name VARCHAR(20) UNIQUE,
         idioma VARCHAR(40),
         atributo VARCHAR(100),
         movimentacao VARCHAR(5),
-        habilidades VARCHAR(500)
+        habilidades_raciais VARCHAR(500)
     )
     """
     cursor.execute(criar_tabela_racas_query)
@@ -52,10 +55,10 @@ def criate_tables_classes(cursor):
     criar_tabela_classes_query = """
     CREATE TABLE IF NOT EXISTS classes (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(20) UNIQUE,
+        class_name VARCHAR(20) UNIQUE,
         dado_vida VARCHAR(5) DEFAULT 'd8',
         resistencias VARCHAR(30),
-        habilidades VARCHAR(500)
+        habilidades_classe VARCHAR(500)
 
     )
     """

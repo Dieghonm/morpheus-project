@@ -29,7 +29,7 @@ const Header = () => {
         setCharacterSheet({...characterSheet, [item]: value})
       }
 
-      if (screen === 'ficha') {
+      if (screen !== 'edit') {
         return Object.entries(data).map(([item, value]) => (
           <div key={item} className="character-info">
             <span className="character-label">{item}:</span>
