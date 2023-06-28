@@ -1,6 +1,7 @@
 import os
 import mysql.connector
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 
@@ -47,12 +48,13 @@ def get_selected_token(nome):
     columns = [column[0] for column in cursor.description]
     result = []
     for row in dados:
-        result.append(dict(zip(columns, row)))
+        obj = dict(zip(columns, row))
+        obj['id'] = dados[0][0]
+        result.append(obj)
 
     cursor.close()
     conn.close()
     return result
-
 
 def new_personagem(usuario_id, nome, classe_id, raca_id, skills):
     conn = connect_to_database()
@@ -75,3 +77,37 @@ def new_personagem(usuario_id, nome, classe_id, raca_id, skills):
     
     cursor.close()
     conn.close()
+
+def edit_personagem(data):
+    conn = connect_to_database()
+    cursor = conn.cursor()
+
+    catch_user_id_query = "SELECT id FROM usuarios WHERE email = %s"
+    cursor.execute(catch_user_id_query, (data['email'],))
+    user = cursor.fetchone()
+
+    catch_racas_id_query = "SELECT id FROM racas WHERE race_name = %s"
+    cursor.execute(catch_racas_id_query, (data['raca'],))
+    raca = cursor.fetchone()
+
+    catch_classe_id_query = "SELECT id FROM classes WHERE class_name = %s"
+    cursor.execute(catch_classe_id_query, (data['classe'],))
+    classe = cursor.fetchone()
+
+    if data['id'] != 0:
+        edit_personagem_query = """
+            UPDATE personagens
+            SET nome = %s, nivel = %s, experiencia = %s, pontos_vida = %s, skills = %s, ca = %s, raca_id = %s, classe_id = %s, proficiencia = %s, forca = %s, destreza = %s, constituicao = %s, inteligencia = %s, sabedoria = %s, carisma = %s, ataques = %s
+            WHERE id = %s
+        """
+        cursor.execute(edit_personagem_query, ( data['name'], data['nivel'], data['experiencia'], data['pontos_vida'], data['skills'], data['ca'], raca[0], classe[0], data['proficiencia'], data['atributos']['Força'], data['atributos']['Destreza'], data['atributos']['Constituição'], data['atributos']['Inteligência'], data['atributos']['Sabedoria'], data['atributos']['Carisma'], data['ataques'], data['id']))
+     
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+        return "Personagem editado."
+    else:
+        print(user[0])
+        return "criar personagem"
+    

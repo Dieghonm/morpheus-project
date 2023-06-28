@@ -20,8 +20,10 @@ const Tokens = () => {
   }, [SelectedToken]);
 
   useEffect(() => {
+    // console.log(character[0]);
     if (character.length > 0) {
       const {
+        id,
         class_name,
         race_name,
         ataques,
@@ -41,11 +43,13 @@ const Tokens = () => {
         constituicao,
         dado_vida
       } = character[0];
+      console.log(skills);
 
       if (character[0]) {
         setCharacterSheet({
           player: SelectedToken[0],
           name: SelectedToken[1],
+          id,
           nivel,
           experiencia,
           pontos_vida,

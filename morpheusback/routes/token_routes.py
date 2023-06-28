@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from DB_updates.tokenDB import get_tokens, get_selected_token
+from DB_updates.tokenDB import get_tokens, get_selected_token, edit_personagem
 
 token_blueprint = Blueprint('token', __name__)
 
@@ -19,3 +19,11 @@ def tokens_post():
         return jsonify(answer)
     else:
         return jsonify("Endpoint não encontrado para esta condição 2.")
+
+@token_blueprint.route("/editToken", methods=["POST"])
+def editTokens_post():
+        data = request.json
+        answer = edit_personagem(data["data"])
+        return jsonify(answer)
+
+# newtoken
