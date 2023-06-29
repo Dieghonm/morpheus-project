@@ -17,6 +17,7 @@ function App() {
   const [characterSheet, setCharacterSheet] = useState([]);
   const [screen, setScreen] = useState('ficha');
   const [imutables, setImutables] = useState({raca:[], classe:[], armas:[], armaduras:[]});
+  const [tokens, setTokens] = useState([]);
 
   const params = {
     loggedIn,
@@ -29,6 +30,9 @@ function App() {
     setScreen,
     imutables,
     setImutables,
+    tokens, 
+    setTokens,
+
    }
 
   return (

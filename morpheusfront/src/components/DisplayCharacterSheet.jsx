@@ -13,14 +13,26 @@ import { EditToken } from '../helpers/requests/token';
 import { arrayToString } from '../helpers/functions';
 
 const DisplayCharacterSheet = () => {
-  const { characterSheet, loggedIn } = useContext(MyContext);
+  const { characterSheet, setCharacterSheet, loggedIn, screen, setScreen, setTokens, tokens } = useContext(MyContext);
+  const {skills, ataques, name, player} = characterSheet
+  const { email } = loggedIn
 
-  const saveCharacter = () => {
-    const { email } = loggedIn
-    const {skills, ataques} = characterSheet
+  const updateStates = (data) => {
+    setCharacterSheet({...characterSheet, id: data.id})
+    console.log(characterSheet);
+    console.log(tokens);
+    setTokens([...tokens, [player, name]])
+  }
+
+  const saveCharacter = async () => {
     const skillsString = arrayToString(skills)
     const ataquesString = JSON.stringify(ataques)
-    EditToken({email, ...characterSheet, skills: skillsString, ataques: ataquesString })
+    if(characterSheet.id === 1) {
+      updateStates(await EditToken({email, ...characterSheet, skills: skillsString, ataques: ataquesString }));
+    }else {
+      EditToken({email, ...characterSheet, skills: skillsString, ataques: ataquesString })
+    }
+    setScreen('ficha')
   }
 
   return (
@@ -41,7 +53,10 @@ const DisplayCharacterSheet = () => {
           <Attacks /> 
         </div>
       </div>
-        <button onClick={saveCharacter}>Salvar </button>
+      {screen === 'edit'? 
+      name !== 'Novo Personagem' ? <button onClick={saveCharacter}>Salvar</button> : <button disabled onClick={saveCharacter}>Salvar</button>: null
+      }
+      
     </div>
   );
 };

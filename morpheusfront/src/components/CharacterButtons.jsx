@@ -6,7 +6,6 @@ const CharacterButtons = () => {
 
   const handonclick = (screen) => {
     setScreen(screen)
-
   }
 
   return (

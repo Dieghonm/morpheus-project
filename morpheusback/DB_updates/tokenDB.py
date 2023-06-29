@@ -79,7 +79,6 @@ def new_personagem(usuario_id, nome, classe_id, raca_id, skills):
     conn.close()
 
 def edit_personagem(data):
-    print('entrei <-------------------------')
     conn = connect_to_database()
     cursor = conn.cursor()
 
@@ -94,10 +93,9 @@ def edit_personagem(data):
     catch_classe_id_query = "SELECT id FROM classes WHERE class_name = %s"
     cursor.execute(catch_classe_id_query, (data['classe'],))
     classe = cursor.fetchone()
-
-    print(type(data['ataques']), data['ataques'])
     
-    if data['id'] != 0:
+    if data['id'] != 1:
+        print('altera')
         edit_personagem_query = """
             UPDATE personagens
             SET nome = %s, nivel = %s, experiencia = %s, pontos_vida = %s, skills = %s, ca = %s, raca_id = %s, classe_id = %s, proficiencia = %s, forca = %s, destreza = %s, constituicao = %s, inteligencia = %s, sabedoria = %s, carisma = %s, ataques = %s
@@ -126,10 +124,38 @@ def edit_personagem(data):
 
         cursor.close()
         conn.close()
-        return "Personagem editado."
     else:
-    #     print(user[0])
-        return "criar personagem"
+        print('novo')
+        edit_personagem_query = """
+            INSERT INTO personagens (usuario_id, nome, nivel, experiencia, pontos_vida, skills, ca, raca_id, classe_id, proficiencia, forca, destreza, constituicao, inteligencia, sabedoria, carisma, ataques)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        cursor.execute(edit_personagem_query, (
+            user[0],
+            data['name'], 
+            data['nivel'], 
+            data['experiencia'], 
+            data['pontos_vida'],
+            data['skills'], 
+            data['ca'], 
+            raca[0], 
+            classe[0], 
+            data['proficiencia'], 
+            data['atributos']['Força'], 
+            data['atributos']['Destreza'], 
+            data['atributos']['Constituição'], 
+            data['atributos']['Inteligência'], 
+            data['atributos']['Sabedoria'], 
+            data['atributos']['Carisma'], 
+            data['ataques'], 
+            ))
+     
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+    
+    return get_selected_token(data['name'])
     
 
 

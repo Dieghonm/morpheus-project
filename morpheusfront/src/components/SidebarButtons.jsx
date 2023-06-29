@@ -7,8 +7,7 @@ import { TokenRequest } from '../helpers/requests/token';
 import { useState } from 'react';
 
 const SidebarButtons = () => {
-  const {loggedIn, setSelectedToken, setScreen} = useContext(MyContext)
-  const [Tokens, setTokens] = useState([]);
+  const {loggedIn, setSelectedToken, setScreen, tokens, setTokens} = useContext(MyContext)
   const [Filter, setFilter] = useState(false);
 
   useEffect (() => {
@@ -39,7 +38,7 @@ const SidebarButtons = () => {
 
   const newCaracter = () => {
     setScreen('edit')
-    setSelectedToken(Tokens[0])
+    setSelectedToken(tokens[0])
   }
 
   return (
@@ -53,7 +52,7 @@ const SidebarButtons = () => {
           <input selected onClick={() => setFilter(!Filter)} id="switch-shadow" type="checkbox" />
           <label htmlFor="switch-shadow">Filtrar personagens</label>
         </div>
-        {Tokens.map((Token) => criateTokenLink(Token))}
+        {tokens.map((Token) => criateTokenLink(Token))}
       </div>
     </div>
   );
