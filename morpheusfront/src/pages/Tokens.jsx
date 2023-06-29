@@ -10,6 +10,7 @@ import Spells from "../components/CharacterComponents/Spells";
 import Notes from "../components/CharacterComponents/Notes";
 
 import './styles/Tokens.css';
+import { stringToArray } from "../helpers/functions";
 
 const Tokens = () => {
   const { loggedIn, SelectedToken, setCharacterSheet, screen } = useContext(MyContext);
@@ -20,7 +21,6 @@ const Tokens = () => {
   }, [SelectedToken]);
 
   useEffect(() => {
-    // console.log(character[0]);
     if (character.length > 0) {
       const {
         id,
@@ -43,13 +43,12 @@ const Tokens = () => {
         constituicao,
         dado_vida
       } = character[0];
-      console.log(skills);
 
       if (character[0]) {
         setCharacterSheet({
+          id,
           player: SelectedToken[0],
           name: SelectedToken[1],
-          id,
           nivel,
           experiencia,
           pontos_vida,
@@ -62,14 +61,14 @@ const Tokens = () => {
             Carisma: carisma,
           },
           ca,
-          skills: skills.slice(1, -1).split(',').map(item => item.trim()),
+          skills: stringToArray(skills),
           raca: race_name,
           movimentacao,
           resistencias,
           classe: class_name,
           dado: dado_vida,
           proficiencia,
-          ataques: ataques ? ataques.slice(1, -1).split(',').map(item => item.trim()) : [],
+          ataques: ataques ? JSON.parse(ataques) : [],
         });
       }
     }

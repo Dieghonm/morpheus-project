@@ -34,7 +34,7 @@ const PV = () => {
             <input 
               className="pv-input" 
               type="number" 
-              onChange={(e) => setCharacterSheet({...characterSheet, 'pontos_vida':e.target.value})} 
+              onChange={(e) => setCharacterSheet({...characterSheet, 'pontos_vida':parseInt(e.target.value)})} 
               value={pontos_vida}
             />
             :

@@ -23,7 +23,9 @@ def tokens_post():
 @token_blueprint.route("/editToken", methods=["POST"])
 def editTokens_post():
         data = request.json
-        answer = edit_personagem(data["data"])
+        answer = edit_personagem(data)
         return jsonify(answer)
+        # print(data)
+        # return 'testando'
 
 # newtoken

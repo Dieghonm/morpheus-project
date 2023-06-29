@@ -6,18 +6,18 @@ import'./styles/Attacks.css'
 const Attacks = () => {
   const {characterSheet, setCharacterSheet, screen } = useContext(MyContext);
   const {ataques} = characterSheet;
-  const [atack, setAtack] = useState({'Nome' : '', 'Dano': '', 'Tipo': '', 'prop':''});
+  const [atack, setAtack] = useState({'nome' : '', 'dano': '', 'tipo': '', 'prop':''});
 
   const newAttack = (target) => {
     setAtack({...atack, [target.name]: target.value})
   }
 
   const save = () => {
-    if (atack.Nome){
+    if (atack.nome){
       let array = ataques
-      array.push([atack.Nome, atack.Dano, atack.Tipo, atack.prop])
+      array.push(atack)
       setCharacterSheet({...characterSheet, ataques: array })
-      setAtack({'Nome' : '', 'Dano': '', 'Tipo': '', 'prop':''})
+      setAtack({'nome' : '', 'dano': '', 'tipo': '', 'prop':''})
     }
   }
 
@@ -41,10 +41,10 @@ const Attacks = () => {
   const renderAtacks = (ataque, i) => {
     return (
       <div key={i} className="attacks">
-        <span className="attacks-name">{ataque[0]}</span>
-        <span className="attacks-dano">{ataque[1]}</span>
-        <span className="attacks-tipo">{ataque[2]}</span>
-        <span className="attacks-propriedades">{ataque[3]}</span>
+        <span className="attacks-name">{ataque.nome}</span>
+        <span className="attacks-dano">{ataque.dano}</span>
+        <span className="attacks-tipo">{ataque.tipo}</span>
+        <span className="attacks-propriedades">{ataque.prop}</span>
         {screen === 'edit' ? 
           <span className="material-symbols-outlined" onClick={() => deleteAttack(i)}>
             delete
@@ -59,9 +59,9 @@ const Attacks = () => {
     if (screen === 'edit') {
       return (
           <div key="attacks-inputs" className="attacks">
-            <input className="attack-input-Nome" value={atack.Nome} type="text" name='Nome' placeholder='Nome' onChange={(e) => newAttack(e.target)} />
-            <input className="attack-input-Dano" value={atack.Dano} type="text" name='Dano' placeholder='Dano' onChange={(e) => newAttack(e.target)} />
-            <input className="attack-input-Tipo" value={atack.Tipo} type="text" name='Tipo' placeholder='Tipo' onChange={(e) => newAttack(e.target)} />
+            <input className="attack-input-Nome" value={atack.nome} type="text" name='nome' placeholder='Nome' onChange={(e) => newAttack(e.target)} />
+            <input className="attack-input-Dano" value={atack.dano} type="text" name='dano' placeholder='Dano' onChange={(e) => newAttack(e.target)} />
+            <input className="attack-input-Tipo" value={atack.tipo} type="text" name='tipo' placeholder='Tipo' onChange={(e) => newAttack(e.target)} />
             <input className="attack-input-Propriedades" value={atack.prop} type="text" name='prop' placeholder='Propriedades' onChange={(e) => newAttack(e.target)} />
           <span className="material-symbols-outlined" onClick={save}>
             check_circle

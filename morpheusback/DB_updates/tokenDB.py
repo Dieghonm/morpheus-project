@@ -79,6 +79,7 @@ def new_personagem(usuario_id, nome, classe_id, raca_id, skills):
     conn.close()
 
 def edit_personagem(data):
+    print('entrei <-------------------------')
     conn = connect_to_database()
     cursor = conn.cursor()
 
@@ -94,13 +95,32 @@ def edit_personagem(data):
     cursor.execute(catch_classe_id_query, (data['classe'],))
     classe = cursor.fetchone()
 
+    print(type(data['ataques']), data['ataques'])
+    
     if data['id'] != 0:
         edit_personagem_query = """
             UPDATE personagens
             SET nome = %s, nivel = %s, experiencia = %s, pontos_vida = %s, skills = %s, ca = %s, raca_id = %s, classe_id = %s, proficiencia = %s, forca = %s, destreza = %s, constituicao = %s, inteligencia = %s, sabedoria = %s, carisma = %s, ataques = %s
             WHERE id = %s
         """
-        cursor.execute(edit_personagem_query, ( data['name'], data['nivel'], data['experiencia'], data['pontos_vida'], data['skills'], data['ca'], raca[0], classe[0], data['proficiencia'], data['atributos']['Força'], data['atributos']['Destreza'], data['atributos']['Constituição'], data['atributos']['Inteligência'], data['atributos']['Sabedoria'], data['atributos']['Carisma'], data['ataques'], data['id']))
+        cursor.execute(edit_personagem_query, ( 
+            data['name'], 
+            data['nivel'], 
+            data['experiencia'], 
+            data['pontos_vida'],
+            data['skills'], 
+            data['ca'], 
+            raca[0], 
+            classe[0], 
+            data['proficiencia'], 
+            data['atributos']['Força'], 
+            data['atributos']['Destreza'], 
+            data['atributos']['Constituição'], 
+            data['atributos']['Inteligência'], 
+            data['atributos']['Sabedoria'], 
+            data['atributos']['Carisma'], 
+            data['ataques'], 
+            data['id']))
      
         conn.commit()
 
@@ -108,6 +128,9 @@ def edit_personagem(data):
         conn.close()
         return "Personagem editado."
     else:
-        print(user[0])
+    #     print(user[0])
         return "criar personagem"
+    
+
+
     
