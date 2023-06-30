@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from flask_cors import CORS
 from routes.login_routes import login_blueprint
 from routes.token_routes import token_blueprint
+from routes.equipment_routes import equipment_blueprint
+
 
 load_dotenv()
 criate_DB()
@@ -17,6 +19,7 @@ def home():
 
 app.register_blueprint(login_blueprint)
 app.register_blueprint(token_blueprint)
+app.register_blueprint(equipment_blueprint)
 
 if __name__ == "__main__":
     app.run()

@@ -109,20 +109,20 @@ pip install mysql-connector-python
 pip install python-dotenv
 pip install flask-cors
 
-iniciar o DB
-sudo service mysql start
-mysql -u <username> -p
-
-comandos DB
-DROP DATABASE;
-DROP DATABASE morpheus;
-
- -->
-
- <!-- inicializar 4 abas de terminal
+inicializar 4 abas de terminal
  1- DB
+  - mysql -h localhost -u root -p
+  - DROP DATABASE morpheus;
+  - USE morpheus;
+  - SELECT * FROM personagens WHERE nome = 'Frekazoid';
  2- back
- 3- front - npm run start:front
+  - source env/bin/activate
+  - python3 app.py
+ 3- front
+  - npm run start:front
  4- git
- 
+  - git add.
+  - git commit -m "Front - "
+  - git commit -m "Back - "
+  - git push
   -->

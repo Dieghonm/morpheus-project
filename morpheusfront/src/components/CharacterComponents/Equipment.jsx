@@ -177,13 +177,43 @@ const Equipment = () => {
     );
   };
 
+  const renderArmor = () => {
+    return (
+      <div className="ca-group">
+        <h4>Armadura e escudo</h4>
+
+        <div className='ca-title-group'>
+          <span className='ca-Tipo' >Tipo</span>
+          <span className='ca-name' >Nome</span>
+          <span className='ca-bonus'>Bonus</span>
+          <span className='ca-value'>CA</span>
+        </div>
+        <div className='ca-title-group'>
+          <span className='ca-Tipo' >Armadura</span>
+          <input className='ca-Nome-input' type="text" name="nome" />
+          <input className='ca-bonus' type="number" name="bonus" />
+          <input className='ca-value' type="number" name="value" />
+        </div>
+        <div className='ca-title-group'>
+          <span className='ca-Tipo' >Escudo</span>  
+          <input className='ca-Nome-input' type="text" name="nome" />
+          <input className='ca-bonus' type="number" name="bonus" />
+          <input className='ca-value' type="number" name="value" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="equipments-group">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       <Header />
       {renderEquipment()}
       {renderTreasure()}
+      <div>
       {renderRanged()}
+      {renderArmor()}
+      </div>
     </div>
   );
 };
