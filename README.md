@@ -118,3 +118,11 @@ DROP DATABASE;
 DROP DATABASE morpheus;
 
  -->
+
+ <!-- inicializar 4 abas de terminal
+ 1- DB
+ 2- back
+ 3- front - npm run start:front
+ 4- git
+ 
+  -->

@@ -8,7 +8,7 @@ import MyContext from "../helpers/context/MyContext";
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [contas, setContas] = useState([]);
+  const [contas, setContas] = useState('loading');
   const [disabledButton, setDisabledButton] = useState(true);
   const [DBresponse, setDBresponse] = useState('');
   const {setLoggedIn, setImutables} = useContext(MyContext)
@@ -29,7 +29,7 @@ const LoginForm = () => {
   const fetchData = async () => {
     try {
       const response = await LoginRequest();
-      setContas(response[0]);
+      setContas(response ? response[0] : 'back off');
       setImutables({raca:response[2], classe:response[1], armas:response[4], armaduras:response[3]})
 
       
@@ -109,7 +109,7 @@ const LoginForm = () => {
       </button>
       <div className="profile-icons">
       <p>Contas ja cadastradas</p>
-        {contas? contas.length === 0? backLoading(): contas.map((conta) => iconMaker(conta)) : backOff()}
+        { contas === 'loading' ? backLoading() : contas === 'back off' ? backOff() : contas.map((conta) => iconMaker(conta))}
       </div>
       <a href="https://br.gravatar.com/">
         Cadastre-se aqui para ter um avatar
