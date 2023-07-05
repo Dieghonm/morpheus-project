@@ -14,6 +14,24 @@
   background-color: var(--input-background-color);
   text-align: center;
   display: flex;
-  height: 100vh; /* Altura total da tela */
-  width: 100vw; /* Largura total da tela */
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+button {
+  width:  90%;
+  padding: 8px;
+  color: var(input-background-color);
+  background-color: dimgray;
+  border: none; 
+  cursor: pointer;
+  margin: 5px;
+  font-size: medium;
+}
+
+@media (min-width: 750px) {
+  .App {
+    justify-content: left;
+  }
 }

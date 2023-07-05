@@ -1,24 +1,20 @@
 .LoginForm {
-  width: 200px;
+  width: 210px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
 }
 
 .LoginForm h3 {
-  margin-bottom: 10px;
+  margin: 20px;
 }
 
 .LoginForm input {
-  width: 100%;
+  width: 200px;
   padding: 8px;
   margin-bottom: 10px;
-}
-
-.LoginForm button {
-  width: 100%;
-  padding: 8px;
-  color: #FFFFFF;
-  border: none;
-  cursor: pointer;
-  margin: 10px;
 }
 
 .LoginForm button:disabled {
@@ -101,7 +97,15 @@
   font-weight: bold;
 }
 
-
 h6 {
   margin: 0;
+} 
+
+@media (min-width: 750px) {
+  .LoginForm {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
 }

@@ -29,7 +29,13 @@ def criate_tables_personagens(cursor):
         raca_id INT,
         classe_id INT,
         proficiencia INT DEFAULT 2,
+        armadura VARCHAR(20) DEFAULT 'Sem armadura',
+        escudo VARCHAR(20) DEFAULT 'Sem escudo',
+        municao VARCHAR(100),
+        arremesso VARCHAR(100),
         ataques VARCHAR(500),
+        equipamentos VARCHAR(500),
+        tesouros VARCHAR(500),
 
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
         FOREIGN KEY (classe_id) REFERENCES classes(id),

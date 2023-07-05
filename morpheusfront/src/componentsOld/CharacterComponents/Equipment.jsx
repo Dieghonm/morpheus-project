@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import MyContext from '../../helpers/context/MyContext';
 import Header from './Header';
 
 import './styles/Equipment.css';
+import { equipmentRequest } from '../../helpers/requests/equipment';
 
 const Equipment = () => {
   const { characterSheet, setCharacterSheet, screen } = useContext(MyContext);
@@ -10,6 +11,25 @@ const Equipment = () => {
   const [newItem, setNewItem] = useState({ quantidade: 0, item: '', descricao: '' });
   const [treasureArray, setTreasureArray] = useState([]);
   const [newTreasure, setNewTreasure] = useState({ quantidade: 0, nome: '', descricao: '' });
+  const [allequipment, setAllequipment] = useState([]);
+  const [armor, setArmor] = useState({name: 'Sem armadura', value: 0, bonus: 0});
+  const [shield, setShield] = useState({name: 'Sem escudo', value: 0, bonus: 0});
+
+  const equipmentFatch = async () => {
+    setAllequipment(equipmentRequest())
+    try {
+      const response = await equipmentRequest();
+      setAllequipment(response);
+      setArmor({name: characterSheet.armadura, value: allequipment[0].find(item => item[0] === characterSheet.armadura)[1], bonus: 0})
+      setShield({name: characterSheet.escudo, value: allequipment[0].find(item => item[0] === characterSheet.escudo)[1], bonus: 0})
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  useEffect(() => {
+    equipmentFatch();
+  },[]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -177,6 +197,16 @@ const Equipment = () => {
     );
   };
 
+  const armorChang = (target) => {
+    setCharacterSheet({...characterSheet, armadura: target.value})
+    setArmor({...armor, [target.name]:target.value, value: allequipment[0].find(item => item[0] === target.value)[1]});
+  }
+
+  const shieldChang = (target) => {
+    setCharacterSheet({...characterSheet, escudo: target.value})
+    setShield({...armor, [target.name]:target.value, value: allequipment[0].find(item => item[0] === target.value)[1]});
+  }
+
   const renderArmor = () => {
     return (
       <div className="ca-group">
@@ -190,21 +220,25 @@ const Equipment = () => {
         </div>
         <div className='ca-title-group'>
           <span className='ca-Tipo' >Armadura</span>
-          <input className='ca-Nome-input' type="text" name="nome" />
-          <input className='ca-bonus' type="number" name="bonus" />
-          <input className='ca-value' type="number" name="value" />
+            <select className='ca-Nome-input' name="name" value={armor.name} onChange={(e) => armorChang(e.target)}>
+              {allequipment[0].map((item) =>  !item[0].toLowerCase().includes("escudo")? <option value={item[0]}>{item[0]}</option> : null)}
+            </select>
+          <input className='ca-bonus' type="number" name="bonus" onChange={(e) => armorChang(e.target)} value={armor.bonus}/>
+          <span className='ca-value'>{armor.value}</span>
         </div>
         <div className='ca-title-group'>
           <span className='ca-Tipo' >Escudo</span>  
-          <input className='ca-Nome-input' type="text" name="nome" />
-          <input className='ca-bonus' type="number" name="bonus" />
-          <input className='ca-value' type="number" name="value" />
+          <select className='ca-Nome-input' name="name" value={shield.name} onChange={(e) => shieldChang(e.target)}>
+              {allequipment[0].map((item) =>  item[0].toLowerCase().includes("escudo")? <option value={item[0]}>{item[0]}</option> : null)}
+          </select>
+          <input className='ca-bonus' type="number" name="bonus" onChange={(e) => armorChang(e.target)} value={shield.bonus}/>
+          <span className='ca-value'>{shield.value}</span>
         </div>
       </div>
     );
   }
 
-  return (
+  return allequipment.length ? (
     <div className="equipments-group">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
       <Header />
@@ -215,7 +249,7 @@ const Equipment = () => {
       {renderArmor()}
       </div>
     </div>
-  );
+  ) : null ;
 };
 
 export default Equipment;

@@ -19,7 +19,7 @@ def get_armor():
     )
 
     cursor = conn.cursor()
-    select_query = "SELECT * FROM armaduras"
+    select_query = "SELECT nome, classe_armadura FROM armaduras"
     cursor.execute(select_query)
     dados = cursor.fetchall()
     cursor.close()

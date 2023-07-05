@@ -1,6 +1,5 @@
 from flask import Blueprint, request, jsonify
-from DB_updates.loginDB import get_users, new_user, get_class, get_races, get_armas, get_armaduras
-
+from DB_updates.loginDB import get_users, new_user, get_class, get_races
 login_blueprint = Blueprint('login', __name__)
 
 @login_blueprint.route("/login", methods=["GET"])
@@ -9,9 +8,7 @@ def login_get():
         users = get_users()
         classes = get_class()
         racas = get_races()
-        armas = get_armas()
-        armaduras = get_armaduras()
-        answer = [users, classes,racas, armaduras, armas]
+        answer = [users, classes, racas]
 
         return jsonify(answer)
 

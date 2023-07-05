@@ -2,12 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import MyContext from '../helpers/context/MyContext';
 import { SelectedTokenRequest } from "../helpers/requests/token";
-import DisplayCharacterSheet from "../components/DisplayCharacterSheet";
-import CharacterButtons from "../components/CharacterButtons";
-import Equipment from "../components/CharacterComponents/Equipment";
-import Feats from "../components/CharacterComponents/Feats";
-import Spells from "../components/CharacterComponents/Spells";
-import Notes from "../components/CharacterComponents/Notes";
+// import DisplayCharacterSheet from "../componentsOld/DisplayCharacterSheet";
+// import CharacterButtons from "../componentsOld/CharacterButtons";
+// import Equipment from "../componentsOld/CharacterComponents/Equipment";
+// import Feats from "../componentsOld/CharacterComponents/Feats";
+// import Spells from "../componentsOld/CharacterComponents/Spells";
+// import Notes from "../componentsOld/CharacterComponents/Notes";
 
 import './styles/Tokens.css';
 import { stringToArray } from "../helpers/functions";
@@ -41,7 +41,9 @@ const Tokens = () => {
         sabedoria,
         carisma,
         constituicao,
-        dado_vida
+        dado_vida,
+        armadura,
+        escudo,
       } = character[0];
 
       if (character[0]) {
@@ -69,6 +71,12 @@ const Tokens = () => {
           dado: dado_vida,
           proficiencia,
           ataques: ataques ? JSON.parse(ataques) : [],
+          armadura,
+          escudo,
+          municao: [],
+          arremesso: [],
+          equipamentos: [],
+          tesouros: [],
         });
       }
     }
@@ -79,26 +87,26 @@ const Tokens = () => {
     setCharacter(response);
   };
 
-  const screenSwitch = () => {
-    switch (screen) {
-      case 'equipamentos':
-        return <Equipment />;
-      case 'habilidades':
-        return <Feats />;
-      case 'magias':
-        return <Spells />;
-      case 'anotacoes':
-        return <Notes />;
-      default: //'ficha' 'edit'
-        return <DisplayCharacterSheet />;
-    }
-  };
+  // const screenSwitch = () => {
+  //   switch (screen) {
+  //     case 'equipamentos':
+  //       return <Equipment />;
+  //     case 'habilidades':
+  //       return <Feats />;
+  //     case 'magias':
+  //       return <Spells />;
+  //     case 'anotacoes':
+  //       return <Notes />;
+  //     default: //'ficha' 'edit'
+  //       return <DisplayCharacterSheet />;
+  //   }
+  // };
 
   return loggedIn.name === '' ? <Navigate to={'/'} /> : (
     <div>
-      <CharacterButtons />
+      {/* <CharacterButtons /> */}
       <div className="display-ficha">
-        {screenSwitch()}
+        {/* {screenSwitch()} */}
       </div>
     </div>
   );

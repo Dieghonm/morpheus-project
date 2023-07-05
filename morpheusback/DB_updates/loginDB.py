@@ -106,19 +106,3 @@ def get_armas():
     cursor.close()
     conn.close()
     return [dado[0] for dado in dados]
-
-def get_armaduras():
-    conn = mysql.connector.connect(
-        host=db_host,
-        user=db_user,
-        password=db_password,
-        database=db_name
-    )
-
-    cursor = conn.cursor()
-    select_query = "SELECT nome FROM armaduras"
-    cursor.execute(select_query)
-    dados = cursor.fetchall()
-    cursor.close()
-    conn.close()
-    return [dado[0] for dado in dados]

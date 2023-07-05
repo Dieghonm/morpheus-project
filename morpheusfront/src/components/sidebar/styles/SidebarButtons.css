@@ -1,0 +1,45 @@
+.SidebarButtons {
+  width: 210px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+}
+
+.personagens {
+  margin-bottom: 0pc;
+}
+
+.sidebar-button:hover {
+  background-color: #e6e6e6;
+}
+
+.avatar-div {
+  display: flex;
+  padding: 0 10px;
+}
+
+.icon-avatar {
+  width: 40px;
+  height: 40px;
+  margin: 3px;
+  border-radius: 50%;
+  object-fit: cover; 
+
+}
+
+.icon-name {
+  margin: 15px;
+  font-size: medium;
+}
+
+
+@media (min-width: 750px) {
+  .SidebarButtons {
+    position: static;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+}
