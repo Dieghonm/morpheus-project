@@ -1,16 +1,12 @@
 import React, { useContext } from 'react';
-import MyContext from '../helpers/context/MyContext';
-
+import MyContext from '../../helpers/context/MyContext';
+import { EditToken } from '../../helpers/requests/token';
+import { arrayToString } from '../../helpers/functions';
 import Header from './CharacterComponents/Header';
 import Attributes from './CharacterComponents/Attributes';
 import PV from './CharacterComponents/PV';
-import CombatData from './CharacterComponents/CombatData';
-import Skills from './CharacterComponents/Skills';
-import Attacks from './CharacterComponents/Attacks';
-import SavingThrow from './CharacterComponents/SavingThrow';
 import Photo from './CharacterComponents/Photo';
-import { EditToken } from '../helpers/requests/token';
-import { arrayToString } from '../helpers/functions';
+
 
 const DisplayCharacterSheet = () => {
   const { characterSheet, setCharacterSheet, loggedIn, screen, setScreen, setTokens, tokens } = useContext(MyContext);
@@ -44,13 +40,13 @@ const DisplayCharacterSheet = () => {
         <Photo />
       </div>
       <div className='mid-container'>
-        <Skills />
+        {/* <Skills /> */}
         <div>
           <span className='mid-span'>
-            <SavingThrow />
-            <CombatData />
+            {/* <SavingThrow /> */}
+            {/* <CombatData /> */}
           </span>
-          <Attacks /> 
+          {/* <Attacks />  */}
         </div>
       </div>
       {screen === 'edit'? 

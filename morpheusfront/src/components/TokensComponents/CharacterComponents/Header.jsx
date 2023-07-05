@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import MyContext from '../../helpers/context/MyContext'
+import MyContext from '../../../helpers/context/MyContext'
 
 import './styles/Header.css'
 
@@ -24,11 +24,11 @@ const Header = () => {
         Classe: classe,
         Nivel:nivel,
       }
-
+      
       const handleChang = (item, value) => {
         setCharacterSheet({...characterSheet, [item]: value})
       }
-
+      
       if (screen !== 'edit') {
         return Object.entries(data).map(([item, value]) => (
           <div key={item} className="character-info">
@@ -37,7 +37,7 @@ const Header = () => {
           </div>
         ));
       }
-
+      
       return Object.entries(data).map(([item, value]) => {
         if (item === 'Nivel') {
           return (
@@ -60,7 +60,7 @@ const Header = () => {
             <div key={item + 'edit'} className="character-info">
               <span className="character-label">{item}:</span>
               <select name="racas" value={raca} className="raca-select" onChange={(e) => handleChang('raca', e.target.value)}>
-                {imutables.raca.map((item) => <option value={item}>{item}</option>)}
+                {imutables.races.map((item) => <option value={item}>{item}</option>)}
               </select>
             </div>
         )}
@@ -89,6 +89,7 @@ const Header = () => {
             </div>
           )
         }
+        return null
       });
     }
   }

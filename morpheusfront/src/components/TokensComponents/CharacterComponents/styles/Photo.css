@@ -1,0 +1,23 @@
+.photo-group {
+  border: 1px solid var(--input-background-color);
+  margin: 0px 0px;
+  width: 175px;
+  padding: 3px;
+}
+
+.photo-group h3 {
+  margin: 0;
+  border-bottom: 1px solid var(--input-background-color);
+}
+
+.inputFile {
+  color:transparent;
+  margin: 3px 30px;
+}
+
+.image-preview {
+  margin-top: 5px;
+  border: 2px solid var(--input-background-color);
+  max-height: 100px;
+  max-width: 200px;
+}

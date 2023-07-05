@@ -1,15 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import MyContext from '../helpers/context/MyContext';
 import { selectedTokenRequest } from "../helpers/requests/token";
-// import DisplayCharacterSheet from "../componentsOld/DisplayCharacterSheet";
-// import Equipment from "../componentsOld/CharacterComponents/Equipment";
-// import Feats from "../componentsOld/CharacterComponents/Feats";
-// import Spells from "../componentsOld/CharacterComponents/Spells";
-// import Notes from "../componentsOld/CharacterComponents/Notes";
+import { stringToArray } from "../helpers/functions";
+import MyContext from '../helpers/context/MyContext';
+
 
 import './styles/Tokens.css';
-import { stringToArray } from "../helpers/functions";
+import DisplayCharacterSheet from "../components/TokensComponents/DisplayCharacterSheet";
 
 const Tokens = () => {
   const { loggedIn, selectedToken, setCharacterSheet, screen } = useContext(MyContext);
@@ -43,6 +40,7 @@ const Tokens = () => {
         dado_vida,
         armadura,
         escudo,
+        img,
       } = character[0];
 
       if (character[0]) {
@@ -76,6 +74,7 @@ const Tokens = () => {
           arremesso: [],
           equipamentos: [],
           tesouros: [],
+          img: null,
         });
       }
     }
@@ -86,25 +85,25 @@ const Tokens = () => {
     setCharacter(response);
   };
 
-  // const screenSwitch = () => {
-  //   switch (screen) {
-  //     case 'equipamentos':
-  //       return <Equipment />;
-  //     case 'habilidades':
-  //       return <Feats />;
-  //     case 'magias':
-  //       return <Spells />;
-  //     case 'anotacoes':
-  //       return <Notes />;
-  //     default: //'ficha' 'edit'
-  //       return <DisplayCharacterSheet />;
-  //   }
-  // };
+  const screenSwitch = () => {
+    switch (screen) {
+      // case 'equipamentos':
+      //   return <Equipment />;
+      // case 'habilidades':
+      //   return <Feats />;
+      // case 'magias':
+      //   return <Spells />;
+      // case 'anotacoes':
+      //   return <Notes />;
+      default: //'ficha' 'edit'
+        return <DisplayCharacterSheet />;
+    }
+  };
 
   return loggedIn.name === '' ? <Navigate to={'/'} /> : (
     <div>
       <div className="display-ficha">
-        {/* {screenSwitch()} */}
+        {screenSwitch()}
       </div>
     </div>
   );
