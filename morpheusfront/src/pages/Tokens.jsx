@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import MyContext from '../helpers/context/MyContext';
-import { SelectedTokenRequest } from "../helpers/requests/token";
+import { selectedTokenRequest } from "../helpers/requests/token";
 // import DisplayCharacterSheet from "../componentsOld/DisplayCharacterSheet";
-// import CharacterButtons from "../componentsOld/CharacterButtons";
 // import Equipment from "../componentsOld/CharacterComponents/Equipment";
 // import Feats from "../componentsOld/CharacterComponents/Feats";
 // import Spells from "../componentsOld/CharacterComponents/Spells";
@@ -13,12 +12,12 @@ import './styles/Tokens.css';
 import { stringToArray } from "../helpers/functions";
 
 const Tokens = () => {
-  const { loggedIn, SelectedToken, setCharacterSheet, screen } = useContext(MyContext);
+  const { loggedIn, selectedToken, setCharacterSheet, screen } = useContext(MyContext);
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
     fetchTokens();
-  }, [SelectedToken]);
+  }, [selectedToken]);
 
   useEffect(() => {
     if (character.length > 0) {
@@ -49,8 +48,8 @@ const Tokens = () => {
       if (character[0]) {
         setCharacterSheet({
           id,
-          player: SelectedToken[0],
-          name: SelectedToken[1],
+          player: selectedToken[0],
+          name: selectedToken[1],
           nivel,
           experiencia,
           pontos_vida,
@@ -83,7 +82,7 @@ const Tokens = () => {
   }, [character]);
 
   const fetchTokens = async () => {
-    const response = await SelectedTokenRequest(SelectedToken[1]);
+    const response = await selectedTokenRequest(selectedToken[1]);
     setCharacter(response);
   };
 
@@ -104,7 +103,6 @@ const Tokens = () => {
 
   return loggedIn.name === '' ? <Navigate to={'/'} /> : (
     <div>
-      {/* <CharacterButtons /> */}
       <div className="display-ficha">
         {/* {screenSwitch()} */}
       </div>

@@ -5,9 +5,10 @@ import { TokenRequest } from '../../helpers/requests/token';
 
 import './styles/SidebarButtons.css'
 import { GetGravatar } from '../../helpers/Gravatar';
+import CharacterButtons from './CharacterButtons';
 
 const SidebarButtons = () => {
-  const { loggedIn, setSelectedToken, setScreen, tokens, setTokens, isSidebarOpen, setIsSidebarOpen } = useContext(MyContext);
+  const { loggedIn, selectedToken, setSelectedToken, setScreen, tokens, setTokens, isSidebarOpen, setIsSidebarOpen } = useContext(MyContext);
   const [filter, setFilter] = useState(false);
 
   useEffect(() => {
@@ -71,16 +72,20 @@ const SidebarButtons = () => {
       <Link to="/Rules">
         <button onClick={() => media()} className="sidebar-button">Regras</button>
       </Link>
-
-      <p className='personagens'>Personagens</p>
-      <Link onClick={() => media()} to="/Tokens">
-        <button className="sidebar-button" onClick={newCharacter}>Criar ficha</button>
-      </Link>
+      { selectedToken.length ? <CharacterButtons /> :
       <div>
-        <input selected={filter} onClick={() => setFilter(!filter)} id="switch-shadow" type="checkbox" />
-        <label htmlFor="switch-shadow">Filtrar personagens</label>
-      </div>
-      {tokens.map((token) => createTokenLink(token))}
+        <p className='personagens'>Personagens</p>
+        <Link onClick={() => media()} to="/Tokens">
+          <button className="sidebar-button" onClick={newCharacter}>Criar ficha</button>
+        </Link>
+        <div>
+          <input selected={filter} onClick={() => setFilter(!filter)} id="switch-shadow" type="checkbox" />
+          <label htmlFor="switch-shadow">Filtrar personagens</label>
+        </div>
+        {tokens.map((token) => createTokenLink(token))}
+      </div> 
+      }
+
     </div>
   );
 };

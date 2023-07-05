@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import MyContext from '../helpers/context/MyContext';
 
 import './styles/Rules.css';
   
 const Rules = () => {
-  const {loggedIn} = useContext(MyContext)
+  const {loggedIn, setSelectedToken} = useContext(MyContext)
+  useEffect(() => {
+    setSelectedToken([])
+  }, [])
+
   if (loggedIn.name === '') {
     return (
       <Navigate to={'/'} />

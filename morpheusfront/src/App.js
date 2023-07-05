@@ -9,7 +9,7 @@ import HomePage from './pages/HomePage';
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [loggedIn, setLoggedIn] = useState({name:'', email:'', role:''});
-  const [SelectedToken, setSelectedToken] = useState([]);
+  const [selectedToken, setSelectedToken] = useState([]);
   const [characterSheet, setCharacterSheet] = useState([]);
   const [screen, setScreen] = useState('ficha');
   const [imutables, setImutables] = useState({raca:[], classe:[], armas:[], armaduras:[]});
@@ -18,7 +18,7 @@ function App() {
   const params = {
     isSidebarOpen, setIsSidebarOpen,
     loggedIn, setLoggedIn,
-    SelectedToken, setSelectedToken,
+    selectedToken, setSelectedToken,
     characterSheet, setCharacterSheet,
     screen, setScreen,
     imutables, setImutables,

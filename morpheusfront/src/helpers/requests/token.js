@@ -9,7 +9,7 @@ export const TokenRequest = async () => {
   }
 }
 
-export const SelectedTokenRequest = async (nome) => {
+export const selectedTokenRequest = async (nome) => {
   try {
     const response = await axios.post("http://127.0.0.1:5000/token?condition=choose_character", {
       nome
